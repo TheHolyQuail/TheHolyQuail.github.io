@@ -1,0 +1,61 @@
+/* GENERAL STYLES */
+
+h1{
+    font-size : 5vw;
+}
+
+h4{
+    font-size : 2vw;
+}
+
+p{
+    font-size: 2vw;
+}
+
+/* SLIDE STYLES */
+
+.slide{
+    /* padding-top: 20vh; */
+    /* padding-right: 20vw; */
+    /* padding-bottom: 20vh; */
+    /* padding-left: 20vw; */
+    height: calc(100vh - 83px);
+    width: 100vw;
+}
+
+/* centers the content for the first slide within the first slide div*/
+.intro-slide-content{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.slide-title{
+    position: relative;
+    width: 100vw;
+    /* color should be based on the site theme */
+    background-color: cadetblue;
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+.slide-text{
+    /* font-size: 60px; */
+    /* text-align: left; */
+}
+
+.image-row{
+    max-height: 50px;
+}
+
+/* MISC STYLES */
+
+/* test class meant to be added to a div to outline it in green */
+.outlineIt{
+    border: 3px solid limegreen;
+}
+
+/* This is to shift the intro slide to start below the nav bar */
+.topOffset{
+    height: 66px;
+}
