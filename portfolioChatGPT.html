@@ -1,0 +1,80 @@
+<!-- In this example, we include the Flexslider CSS and JavaScript files from a CDN, 
+    but you can also download and host these files on your own server if you prefer.
+
+The CSS code includes styles for the body, the Flexslider container, the slide container, 
+and the individual slide items. We set the height of the slide container to a fixed value (in this case, 500px) 
+to ensure that the slideshow is visible and scrollable. We also rotate the slide items by -90deg and set the 
+transform-origin to left top to create a vertical scrolling effect.
+
+The HTML code includes a div with the flexslider class, which contains a ul element with the slides class. 
+Inside the ul, we include several li elements, each containing a div with the slide content.
+
+The JavaScript code initializes the Flexslider plugin and sets the direction option to 'vertical', 
+which tells the plugin to create a vertical scrolling slideshow. We also set some other options to control the 
+behavior and appearance of the slideshow. -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vertical Scrolling Flexslider</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/flexslider.min.css">
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .flexslider {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .flexslider .slides {
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+      }
+      .flexslider .slides li {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 3em;
+        color: #fff;
+        background: #000;
+        transform: rotate(-90deg);
+        transform-origin: left top;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flexslider">
+      <ul class="slides">
+        <li>
+          <div>Slide 1</div>
+        </li>
+        <li>
+          <div>Slide 2</div>
+        </li>
+        <li>
+          <div>Slide 3</div>
+        </li>
+      </ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/jquery.flexslider.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.flexslider').flexslider({
+          direction: 'vertical',
+          controlNav: false,
+          slideshowSpeed: 5000,
+          animationSpeed: 1000
+        });
+      });
+    </script>
+  </body>
+</html>
