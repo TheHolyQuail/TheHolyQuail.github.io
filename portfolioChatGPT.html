@@ -64,6 +64,64 @@ behavior and appearance of the slideshow. -->
         </li>
       </ul>
     </div>
+
+    <!-- If your content is currently in a multiple page PDF and you want to display it in a Flexslider slideshow on your webpage, 
+    you will first need to convert the PDF pages into separate image files (such as JPEG or PNG). 
+    There are several tools available that can help you do this, including Adobe Acrobat Pro, online conversion tools like 
+    SmallPDF or Zamzar, or open source software like ImageMagick.
+
+    Once you have your PDF pages converted to image files, you can create the slides for your Flexslider 
+    slideshow using HTML markup. Here's an example of how you might do this: -->
+    <div class="flexslider">
+        <ul class="slides">
+          <li>
+            <img src="path/to/slide1.jpg" />
+          </li>
+          <li>
+            <img src="path/to/slide2.jpg" />
+          </li>
+          <li>
+            <img src="path/to/slide3.jpg" />
+          </li>
+          <!-- add more <li> elements as needed for each slide -->
+        </ul>
+      </div>
+      <!-- In this example, we're using the Flexslider plugin to create a slideshow container (<div class="flexslider">) 
+        and a list of slides (<ul class="slides">). Each slide is represented by an <li> element, which contains an <img> element 
+            with the src attribute set to the file path of the corresponding image file.
+
+        You can customize the appearance and behavior of your Flexslider slideshow using CSS and JavaScript. 
+        For example, you might want to add navigation arrows, autoplay functionality, or styling to match the rest of your webpage.
+        
+        Note that converting PDF pages to images can result in large file sizes and slower loading times, 
+        so it's a good idea to optimize your images for web use using tools like Photoshop or online image compressors. 
+        Additionally, keep in mind that displaying large amounts of text as images can be less accessible for users who 
+        rely on screen readers or have slow internet connections, 
+        so it's a good idea to provide alternative text or HTML content for your slides. -->
+
+        <!-- 
+            /////////////// With alternative content and header + description. /////////////////////////
+            <div class="flexslider">
+            <ul class="slides">
+              <li>
+                <img src="path/to/slide1.jpg" alt="Alternative text for slide 1" />
+                <div class="slide-content">
+                  <h2>Slide 1 Title</h2>
+                  <p>Slide 1 description goes here.</p>
+                </div>
+              </li>
+              <li>
+                <img src="path/to/slide2.jpg" alt="Alternative text for slide 2" />
+                <div class="slide-content">
+                  <h2>Slide 2 Title</h2>
+                  <p>Slide 2 description goes here.</p>
+                </div>
+              </li>
+              // add more <li> elements as needed for each slide
+            </ul>
+          </div> -->
+          
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/jquery.flexslider.min.js"></script>
     <script>
