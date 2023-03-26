@@ -1,25 +1,325 @@
-<!-- In this example, we include the Flexslider CSS and JavaScript files from a CDN, 
-    but you can also download and host these files on your own server if you prefer.
-
-The CSS code includes styles for the body, the Flexslider container, the slide container, 
-and the individual slide items. We set the height of the slide container to a fixed value (in this case, 500px) 
-to ensure that the slideshow is visible and scrollable. We also rotate the slide items by -90deg and set the 
-transform-origin to left top to create a vertical scrolling effect.
-
-The HTML code includes a div with the flexslider class, which contains a ul element with the slides class. 
-Inside the ul, we include several li elements, each containing a div with the slide content.
-
-The JavaScript code initializes the Flexslider plugin and sets the direction option to 'vertical', 
-which tells the plugin to create a vertical scrolling slideshow. We also set some other options to control the 
-behavior and appearance of the slideshow. -->
-
 <!DOCTYPE html>
 <html>
   <head>
     <title>Vertical Scrolling Flexslider</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/flexslider.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/flexslider.min.css"> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> -->
+	<!-- <script src="jquery.flexslider.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/jquery.flexslider-min.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- Place in the <head>, after the three links -->
+    <script type="text/javascript" charset="utf-8">
+    // $(window).load(function() {
+    //   $('.flexslider').flexslider();
+    // });
+        
+        // source documentation: https://www.jqueryscript.net/slider/Awesome-Fully-Responsive-jQuery-Slider-FlexSlider.html
+        //                          https://codepen.io/joshcavinder/pen/gQZYOY
+        $(document).ready(function() {
+            $('.flexslider').flexslider({
+                // Select your animation type
+                // "fade" or "slide" 
+                animation: "slide",
+
+                // Should the animation loop? 
+                // If false, directionNav will received "disable" classes at either end 
+                animationLoop: true,
+
+                // Create pause/play dynamic element
+                pausePlay: true,
+
+                // Set the text for the "pause" pausePlay item           
+                pauseText: "Pause", 
+
+                // Set the text for the "play" pausePlay item            
+                playText: "Play",
+
+                // Requires jquery.mousewheel.js 
+                // (https://github.com/brandonaaron/jquery-mousewheel)
+                // Allows slider navigating via mousewheel 
+                mousewheel: false,
+
+                // no clue what this is...
+                rtl: true,
+
+                // Select the sliding direction
+                // "horizontal" or "vertical"        
+                direction: "horizontal",  
+
+                // Reverse the animation direction  
+                reverse: false,
+
+                // The slide that the slider should start on. Array notation 
+                // (0 = first slide)     
+                startAt: 0,
+
+                // Set an initialization delay, in milliseconds           
+                initDelay: 0,
+
+                // Randomize slide order        
+                randomize: false,
+
+                // Pause the slideshow when interacting with control elements, 
+                // highly recommended.
+                pauseOnAction: true, 
+
+                // Pause the slideshow when hovering over slider, 
+                // then resume when no longer hovering      
+                pauseOnHover: false,  
+
+                // Pause the slideshow when tab is invisible, resume when visible. 
+                // Provides better UX, lower CPU usage.         
+                pauseInvisible: true,
+
+                // // Determines the easing method used in jQuery transitions. 
+                // // jQuery easing plugin is supported!          
+                // easing: "swing",              
+
+                // // Allow height of the slider to animate smoothly in horizontal mode    
+                // smoothHeight: false,      
+
+                // Animate slider automatically      
+                slideshow: true,       
+
+                // Set the speed of the slideshow cycling, in milliseconds         
+                slideshowSpeed: 4000,  
+
+                // Set the speed of animations, in milliseconds         
+                animationSpeed: 500, 
+
+                // // Fade in the first slide when animation type is "fade"        
+                // fadeFirstSlide: true,  
+
+                // // Whether or not to put captions on thumbnails when using the "thumbnails" controlNav.         
+                // thumbCaptions: false,           
+
+                // // Slider will use CSS3 transitions if available    
+                // useCSS: true,     
+
+                // Allow touch swipe navigation of the slider on touch-enabled devices              
+                touch: true,        
+
+                // // If using <a href="https://www.jqueryscript.net/tags.php?/video/">video</a> in the slider, will prevent CSS3 <a href="https://www.jqueryscript.net/tags.php?/3D/">3D</a> Transforms to avoid graphical glitches           
+                // video: false,                   
+
+                // // Create navigation for paging control of each slide? 
+                // // Note: Leave true for manualControls usage
+                // controlNav: true,     
+
+                // // Create navigation for previous/next navigation?      
+                // directionNav: true,          
+
+                // // Set the text for the "previous" directionNav item   
+                // prevText: "Previous",       
+
+                // // Set the text for the "next" directionNav item    
+                // nextText: "Next",               
+
+                // Allow slider navigating via keyboard left/right keys
+                keyboard: true,        
+
+                // Allow keyboard navigation to affect multiple sliders. 
+                // Default behavior cuts out keyboard navigation with more than one slider present.         
+                multipleKeyboard: false,                      
+
+                // // jQuery Object/Selector: Declare which container the navigation elements should be appended too. 
+                // // Default container is the FlexSlider element. 
+                // // Example use would be $(".flexslider-container"). 
+                // // Property is ignored if given element is not found.
+                // controlsContainer: "",   
+
+                // // jQuery Object/Selector: Custom prev / next button. 
+                // // Must be two jQuery elements. 
+                // // In order to make the events work they have to have the classes "prev" and "next" (plus namespace)
+                // customDirectionNav: "",                            
+
+                // Box-model width of individual carousel items, including horizontal borders and padding.
+                itemWidth: 0,       
+
+                // Margin between carousel items.            
+                itemMargin: 0,  
+
+                // Minimum number of carousel items that should be visible. 
+                // Items will resize fluidly when below this.                
+                minItems: 1,   
+
+                // Maxmimum number of carousel items that should be visible. 
+                // Items will resize fluidly when above this limit.                
+                maxItems: 0,  
+
+                // Number of carousel items that should move on animation. 
+                // If 0, slider will move all visible items.                  
+                move: 0,             
+
+                // Whether or not to allow a slider comprised of a single slide           
+                allowOneSlide: true,           
+
+                // // Fires when the slider loads the first slide
+                // start: function(){},  
+
+                // // Fires asynchronously with each slider animation
+                // before: function(){},  
+
+                // // Fires after each slider animation completes         
+                // after: function(){}, 
+
+                // // Fires when the slider reaches the last slide (asynchronous)           
+                // end: function(){},  
+
+                // // Fires after a slide is added            
+                // added: function(){},  
+
+                // // Fires after a slide is removed          
+                // removed: function(){},    
+
+                // // Fires after the slider is initially setup       
+                // init: function() {}  
+            });
+        });
+    </script>
     <style>
+        /* SLIDE STYLES */
+
+        @import "https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/flexslider.min.css";
+
+        .flexslider {
+            height: 90vh;
+            /* max-height: 100%; */
+            /* overflow: hidden; */
+            overflow: visible;
+        }
+        .flexslider img {
+            /* object-fit: cover; */
+            object-fit: scale-down;
+        }
+        .flexslider, .flex-viewport, .slides, img {
+            max-height: 90vh;
+            /* max-height: 100%; */
+            height: auto;
+            /* align-self: stretch; */
+        }
+
+        /* quick fix: https://stackoverflow.com/questions/31463723/flexsliders-arrows-is-like-a-cut-bottom-what-to-do */
+        .flex-direction-nav a {
+            height: 45px;
+        }
+        .flex-pauseplay a {
+            height: 30px;
+        }
+
+        /* GENERAL STYLES */
+        h1{
+            font-size : 5vw;
+        }
+
+        h4{
+            font-size : 2vw;
+        }
+
+        p{
+            font-size: 2vw;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0
+        }
+
+        /* PDF SIZING */
+        /* .row-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            overflow: hidden;
+        } */
+
+        .first-row {
+            background-color: rgb(40, 0, 135);
+        }
+
+        .second-row { 
+            flex-grow: 1;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* This is to shift the content to start below the nav bar */
+        .topOffset{
+            height: 66px;
+        }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar fixed-top navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" alt="ENW" width="40px" height="40px">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link active" href="portfolio.html">Portfolio</a>
+                    <a class="nav-link" href="resume.html">Resume</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- <div class="row-container"> -->
+        <div class="first-row topOffset"></div>
+        
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                <img src="images\DIY images\cartridgeHolder1.png" />
+                </li>
+                <li>
+                <img src="images\DIY images\ExcelCompileGraph1.png" />
+                </li>
+                <li>
+                <img src="images\DIY images\sheetAlignmentFixture1.png" />
+                </li>
+                <!-- add more <li> elements as needed for each slide -->
+            </ul>
+        </div>
+    <!-- </div> -->
+  </body>
+</html>
+
+        <!-- 
+            /////////////// With alternative content and header + description. /////////////////////////
+            <div class="flexslider">
+            <ul class="slides">
+              <li>
+                <img src="path/to/slide1.jpg" alt="Alternative text for slide 1" />
+                <div class="slide-content">
+                  <h2>Slide 1 Title</h2>
+                  <p>Slide 1 description goes here.</p>
+                </div>
+              </li>
+              <li>
+                <img src="path/to/slide2.jpg" alt="Alternative text for slide 2" />
+                <div class="slide-content">
+                  <h2>Slide 2 Title</h2>
+                  <p>Slide 2 description goes here.</p>
+                </div>
+              </li>
+              // add more <li> elements as needed for each slide
+            </ul>
+          </div> -->
+
+          <!-- <style>
       body {
         font-family: sans-serif;
         margin: 0;
@@ -48,91 +348,4 @@ behavior and appearance of the slideshow. -->
         transform: rotate(-90deg);
         transform-origin: left top;
       }
-    </style>
-  </head>
-  <body>
-    <div class="flexslider">
-      <ul class="slides">
-        <li>
-          <div>Slide 1</div>
-        </li>
-        <li>
-          <div>Slide 2</div>
-        </li>
-        <li>
-          <div>Slide 3</div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- If your content is currently in a multiple page PDF and you want to display it in a Flexslider slideshow on your webpage, 
-    you will first need to convert the PDF pages into separate image files (such as JPEG or PNG). 
-    There are several tools available that can help you do this, including Adobe Acrobat Pro, online conversion tools like 
-    SmallPDF or Zamzar, or open source software like ImageMagick.
-
-    Once you have your PDF pages converted to image files, you can create the slides for your Flexslider 
-    slideshow using HTML markup. Here's an example of how you might do this: -->
-    <div class="flexslider">
-        <ul class="slides">
-          <li>
-            <img src="path/to/slide1.jpg" />
-          </li>
-          <li>
-            <img src="path/to/slide2.jpg" />
-          </li>
-          <li>
-            <img src="path/to/slide3.jpg" />
-          </li>
-          <!-- add more <li> elements as needed for each slide -->
-        </ul>
-      </div>
-      <!-- In this example, we're using the Flexslider plugin to create a slideshow container (<div class="flexslider">) 
-        and a list of slides (<ul class="slides">). Each slide is represented by an <li> element, which contains an <img> element 
-            with the src attribute set to the file path of the corresponding image file.
-
-        You can customize the appearance and behavior of your Flexslider slideshow using CSS and JavaScript. 
-        For example, you might want to add navigation arrows, autoplay functionality, or styling to match the rest of your webpage.
-        
-        Note that converting PDF pages to images can result in large file sizes and slower loading times, 
-        so it's a good idea to optimize your images for web use using tools like Photoshop or online image compressors. 
-        Additionally, keep in mind that displaying large amounts of text as images can be less accessible for users who 
-        rely on screen readers or have slow internet connections, 
-        so it's a good idea to provide alternative text or HTML content for your slides. -->
-
-        <!-- 
-            /////////////// With alternative content and header + description. /////////////////////////
-            <div class="flexslider">
-            <ul class="slides">
-              <li>
-                <img src="path/to/slide1.jpg" alt="Alternative text for slide 1" />
-                <div class="slide-content">
-                  <h2>Slide 1 Title</h2>
-                  <p>Slide 1 description goes here.</p>
-                </div>
-              </li>
-              <li>
-                <img src="path/to/slide2.jpg" alt="Alternative text for slide 2" />
-                <div class="slide-content">
-                  <h2>Slide 2 Title</h2>
-                  <p>Slide 2 description goes here.</p>
-                </div>
-              </li>
-              // add more <li> elements as needed for each slide
-            </ul>
-          </div> -->
-          
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/jquery.flexslider.min.js"></script>
-    <script>
-      $(document).ready(function() {
-        $('.flexslider').flexslider({
-          direction: 'vertical',
-          controlNav: false,
-          slideshowSpeed: 5000,
-          animationSpeed: 1000
-        });
-      });
-    </script>
-  </body>
-</html>
+    </style> -->
