@@ -31,7 +31,8 @@ body, html {
 }
 
 .first-row {
-    background-color: rgb(40, 0, 135);
+    /* background-color: rgb(40, 0, 135); */
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .second-row { 
