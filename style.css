@@ -44,6 +44,14 @@ body, html {
 
 /* MISC STYLES */
 
+.footer {
+    background-color: rgb(19, 13, 45);
+    color:white;
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
 /* test class meant to be added to a div to outline it in green */
 .outlineIt{
     border: 3px solid limegreen;
