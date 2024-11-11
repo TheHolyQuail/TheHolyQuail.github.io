@@ -1,411 +1,193 @@
-<!-- ChatGPT was used to choose flexslider. The code itself is from other sources since the ChatGPT code was outdated and buggy -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Vertical Scrolling Flexslider</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/flexslider.min.css"> -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> -->
-	<!-- <script src="jquery.flexslider.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/jquery.flexslider-min.js"></script>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <!-- Place in the <head>, after the three links -->
-    <script type="text/javascript" charset="utf-8">
-    // $(window).load(function() {
-    //   $('.flexslider').flexslider();
-    // });
-        
-        // source documentation: https://www.jqueryscript.net/slider/Awesome-Fully-Responsive-jQuery-Slider-FlexSlider.html
-        //                          https://codepen.io/joshcavinder/pen/gQZYOY
-        $(document).ready(function() {
-            $('.flexslider').flexslider({
-                // Select your animation type
-                // "fade" or "slide" 
-                animation: "slide",
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full-Page Scrolling Portfolio</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    @import 'https://fonts.googleapis.com/css?family=Raleway';
 
-                // Should the animation loop? 
-                // If false, directionNav will received "disable" classes at either end 
-                animationLoop: true,
+    html, body
+    {
+        margin: 0px;
+    }
 
-                // Create pause/play dynamic element
-                pausePlay: true,
+    header, footer
+    {
+        font-family: Raleway;
+        margin: 0 auto;
+    padding: 5em 3em;
+    text-align: center;
+        background: #555;
+    }
 
-                // Set the text for the "pause" pausePlay item           
-                pauseText: "Pause", 
+    header h1
+    {
+        color: #AAA;
+        font-size: 40px;
+        font-weight: lighter;
+        margin-bottom: 5px;
+    }
 
-                // Set the text for the "play" pausePlay item            
-                playText: "Play",
+    header span
+    {
+        color: #222;
+    }
 
-                // Requires jquery.mousewheel.js 
-                // (https://github.com/brandonaaron/jquery-mousewheel)
-                // Allows slider navigating via mousewheel 
-                mousewheel: false,
+    footer span
+    {
+    color: #AAA;
+    }
 
-                // no clue what this is...
-                rtl: true,
+    div.container
+    {
+        font-family: Raleway;
+        margin: 0 auto;
+    padding: 10em 3em;
+    text-align: center;
+    }
 
-                // Select the sliding direction
-                // "horizontal" or "vertical"        
-                direction: "horizontal",  
+    div.container a
+    {
+        color: #FFF;
+        text-decoration: none;
+        font: 20px Raleway;
+        margin: 0px 10px;
+        padding: 10px 10px;
+        position: relative;
+        z-index: 0;
+        cursor: pointer;
+    }
 
-                // Reverse the animation direction  
-                reverse: false,
+    .indigo
+    {
+        background: #3f51b5;
+    }
 
-                // The slide that the slider should start on. Array notation 
-                // (0 = first slide)     
-                startAt: 0,
+    /* Top border go down and Left border appears */
+    div.topLeftBorders a:before
+    {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 2px;
+        height: 0px;
+        background: #FFF;
+        content: "";
+        opacity: 1;
+        transition: all 0.3s;
+    }
 
-                // Set an initialization delay, in milliseconds           
-                initDelay: 0,
-
-                // Randomize slide order        
-                randomize: false,
-
-                // Pause the slideshow when interacting with control elements, 
-                // highly recommended.
-                pauseOnAction: true, 
-
-                // Pause the slideshow when hovering over slider, 
-                // then resume when no longer hovering      
-                pauseOnHover: false,  
-
-                // Pause the slideshow when tab is invisible, resume when visible. 
-                // Provides better UX, lower CPU usage.         
-                pauseInvisible: true,
-
-                // // Determines the easing method used in jQuery transitions. 
-                // // jQuery easing plugin is supported!          
-                // easing: "swing",              
-
-                // // Allow height of the slider to animate smoothly in horizontal mode    
-                // smoothHeight: false,      
-
-                // Animate slider automatically      
-                slideshow: true,       
-
-                // Set the speed of the slideshow cycling, in milliseconds         
-                slideshowSpeed: 4000,  
-
-                // Set the speed of animations, in milliseconds         
-                animationSpeed: 500, 
-
-                // // Fade in the first slide when animation type is "fade"        
-                // fadeFirstSlide: true,  
-
-                // // Whether or not to put captions on thumbnails when using the "thumbnails" controlNav.         
-                // thumbCaptions: false,           
-
-                // // Slider will use CSS3 transitions if available    
-                // useCSS: true,     
-
-                // Allow touch swipe navigation of the slider on touch-enabled devices              
-                touch: true,        
-
-                // // If using <a href="https://www.jqueryscript.net/tags.php?/video/">video</a> in the slider, will prevent CSS3 <a href="https://www.jqueryscript.net/tags.php?/3D/">3D</a> Transforms to avoid graphical glitches           
-                // video: false,                   
-
-                // // Create navigation for paging control of each slide? 
-                // // Note: Leave true for manualControls usage
-                // controlNav: true,     
-
-                // // Create navigation for previous/next navigation?      
-                // directionNav: true,          
-
-                // // Set the text for the "previous" directionNav item   
-                // prevText: "Previous",       
-
-                // // Set the text for the "next" directionNav item    
-                // nextText: "Next",               
-
-                // Allow slider navigating via keyboard left/right keys
-                keyboard: true,        
-
-                // Allow keyboard navigation to affect multiple sliders. 
-                // Default behavior cuts out keyboard navigation with more than one slider present.         
-                multipleKeyboard: false,                      
-
-                // // jQuery Object/Selector: Declare which container the navigation elements should be appended too. 
-                // // Default container is the FlexSlider element. 
-                // // Example use would be $(".flexslider-container"). 
-                // // Property is ignored if given element is not found.
-                // controlsContainer: "",   
-
-                // // jQuery Object/Selector: Custom prev / next button. 
-                // // Must be two jQuery elements. 
-                // // In order to make the events work they have to have the classes "prev" and "next" (plus namespace)
-                // customDirectionNav: "",                            
-
-                // Box-model width of individual carousel items, including horizontal borders and padding.
-                itemWidth: 0,       
-
-                // Margin between carousel items.            
-                itemMargin: 0,  
-
-                // Minimum number of carousel items that should be visible. 
-                // Items will resize fluidly when below this.                
-                minItems: 1,   
-
-                // Maxmimum number of carousel items that should be visible. 
-                // Items will resize fluidly when above this limit.                
-                maxItems: 0,  
-
-                // Number of carousel items that should move on animation. 
-                // If 0, slider will move all visible items.                  
-                move: 0,             
-
-                // Whether or not to allow a slider comprised of a single slide           
-                allowOneSlide: true,           
-
-                // // Fires when the slider loads the first slide
-                // start: function(){},  
-
-                // // Fires asynchronously with each slider animation
-                // before: function(){},  
-
-                // // Fires after each slider animation completes         
-                // after: function(){}, 
-
-                // // Fires when the slider reaches the last slide (asynchronous)           
-                // end: function(){},  
-
-                // // Fires after a slide is added            
-                // added: function(){},  
-
-                // // Fires after a slide is removed          
-                // removed: function(){},    
-
-                // // Fires after the slider is initially setup       
-                // init: function() {}  
-            });
-        });
-    </script>
-    <style>
-        /* SLIDE STYLES */
-
-        @import "https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/flexslider.min.css";
-
-        .flexslider {
-            height: 90vh;
-            /* max-height: 100%; */
-            /* overflow: hidden; */
-            overflow: visible;
-        }
-        .flexslider img {
-            /* object-fit: cover; */
-            object-fit: scale-down;
-            /* object-fit: fill; */
-        }
-        .flexslider, .flex-viewport, .slides, img {
-            max-height: 90vh;
-            /* max-height: 100%; */
-            height: auto;
-            /* align-self: stretch; */
-        }
-
-        /* quick fix: https://stackoverflow.com/questions/31463723/flexsliders-arrows-is-like-a-cut-bottom-what-to-do */
-        .flex-direction-nav a {
-            height: 45px;
-        }
-        .flex-pauseplay a {
-            height: 30px;
-        }
-
-        /* GENERAL STYLES */
-        h1{
-            font-size : 5vw;
-        }
-
-        h4{
-            font-size : 2vw;
-        }
-
-        p{
-            font-size: 2vw;
-        }
-
-        body, html {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0
-        }
-
-        /* PDF SIZING */
-        .row-container {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .first-row {
-            background-color: rgb(40, 0, 135);
-        }
-
-        .second-row { 
-            flex-grow: 1;
-            border: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .slideshow {
-            background-color: rgb(52, 50, 58);
-        }
-        img {
-           border-radius: 10px;
-           border-color: rgb(135, 13, 13); 
-        }
-
-        .flex-pauseplay {
-            text-shadow: 0 0 3px #666666;
-            /* text-shadow: 2px 2px #666666; */
-        }
-
-        /* This is to shift the content to start below the nav bar */
-        .topOffset{
-            height: 60px;
-        }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar fixed-top navbar-expand-lg bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="images/logo.png" alt="ENW" width="30px">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
-                    <a class="nav-link active" href="portfolio.html">Portfolio</a>
-                    <a class="nav-link" href="resume.html">Resume</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <!-- <div class="row-container"> -->
-        <div class="first-row topOffset"></div>
-        
-        <div class="flexslider slideshow">
-            <ul class="slides">
-                <li>
-                <img src="images\slides\slide0.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide1.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide2.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide3.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide4.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide5.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide6.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide7.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide8.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide9.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide10.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide11.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide12.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide13.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide14.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide15.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide16.png" />
-                </li>
-                <!-- add more <li> elements as needed for each slide -->
-            </ul>
-        </div>
-    <!-- </div> -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-    </body>
-</html>
-
-        <!-- 
-            /////////////// With alternative content and header + description. /////////////////////////
-            <div class="flexslider">
-            <ul class="slides">
-              <li>
-                <img src="path/to/slide1.jpg" alt="Alternative text for slide 1" />
-                <div class="slide-content">
-                  <h2>Slide 1 Title</h2>
-                  <p>Slide 1 description goes here.</p>
-                </div>
-              </li>
-              <li>
-                <img src="path/to/slide2.jpg" alt="Alternative text for slide 2" />
-                <div class="slide-content">
-                  <h2>Slide 2 Title</h2>
-                  <p>Slide 2 description goes here.</p>
-                </div>
-              </li>
-              // add more <li> elements as needed for each slide
-            </ul>
-          </div> -->
-
-          <!-- <style>
-      body {
-        font-family: sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      .flexslider {
+    div.topLeftBorders a:after
+    {
+        position: absolute;
+        top: 0px;
+        left: 0px;
         width: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      .flexslider .slides {
-        width: 100%;
-        height: 500px;
-        overflow: hidden;
-      }
-      .flexslider .slides li {
-        width: 100%;
+        height: 2px;
+        background: #FFF;
+        content: "";
+        opacity: 1;
+        transition: all 0.3s;
+    }
+
+    div.topLeftBorders a:hover:before
+    {
         height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        font-size: 3em;
-        color: #fff;
-        background: #000;
-        transform: rotate(-90deg);
-        transform-origin: left top;
-      }
-    </style> -->
+    }
+
+    div.topLeftBorders a:hover:after
+    {
+        opacity: 0;
+        top: 100%;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="container indigo topLeftBorders">
+        <a>HOME</a>
+        <a>ARTICLES</a>
+        <a>PORTFOLIO</a>
+        <a>ABOUT</a>
+        <a>CONTACT</a>
+      </div>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio with Full-Page Scroll</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Container settings for scroll snapping */
+    .scroll-container {
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      height: 100vh; /* Full viewport height */
+    }
+
+    /* Each section settings */
+    .section {
+      scroll-snap-align: start;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8f9fa;
+      color: #343a40;
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+<div class="scroll-container">
+  <!-- Section 1 -->
+  <div class="section">
+    <div class="container text-center">
+      <h1>Project 1</h1>
+      <p>A brief description of Project 1.</p>
+      <img src="image1.jpg" class="img-fluid mb-3" alt="Project 1 Image">
+      <a href="#" class="btn btn-primary">Learn More</a>
+    </div>
+  </div>
+  
+  <!-- Section 2 -->
+  <div class="section">
+    <div class="container text-center">
+      <h1>Project 2</h1>
+      <p>A brief description of Project 2.</p>
+      <img src="image2.jpg" class="img-fluid mb-3" alt="Project 2 Image">
+      <a href="#" class="btn btn-primary">Learn More</a>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <div class="container text-center">
+      <h1>Project 3</h1>
+      <p>A brief description of Project 3.</p>
+      <img src="image3.jpg" class="img-fluid mb-3" alt="Project 3 Image">
+      <a href="#" class="btn btn-primary">Learn More</a>
+    </div>
+  </div>
+  
+  <!-- Add more sections as needed -->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<!-- Add this Smooth Scroll JS just before the closing </body> tag -->
+<script>
+    document.querySelector('.scroll-container').style.scrollBehavior = 'smooth';
+</script>
+
+</body>
+</html>
