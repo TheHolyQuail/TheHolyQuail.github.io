@@ -40,10 +40,28 @@
         <!-- <div id="desktopView">Should see in desktop mode</div>
         <div id="mobileView">Should see in iPhone 6 vertical mode</div> -->
 
-        <div class="image">
+        <!-- <div class="image">
             <img src="images/resume_20240714-web/resumePage1.png" alt="Resume page 1 for mobile. Availible at https://github.com/TheHolyQuail/TheHolyQuail.github.io/tree/main/images" style="max-width: 100%;">
             <img src="images/resume_20240714-web/resumePage2.png" alt="Resume page 2 for mobile" style="max-width: 100%;">
+        </div> -->
+
+        <!-- For desktop browsers -->
+        <iframe class="pdf-viewer" src="images/resume_20241028-web.pdf" type="application/pdf">
+            Your browser does not support PDFs.
+        </iframe>
+    
+        <!-- For mobile browsers -->
+        <div class="content png-viewer">
+            <img src="images/resume_20241028-web/resumePage1.png" alt="Page 1 of PDF">
+            <img src="images/resume_20241028-web/resumePage2.png" alt="Page 2 of PDF">
         </div>
+
+        <!-- <picture class="png-viewer">
+            <source srcset="images/resume_20240714-web/resumePage1.png" media="(max-width: 768px)">
+            <img src="images/resume_20240714-web/resumePage1.png" alt="Resume page 1 for mobile. Availible at https://github.com/TheHolyQuail/TheHolyQuail.github.io/tree/main/images" style="max-width: 100%;">
+            <img src="images/resume_20240714-web/resumePage2.png" alt="Resume page 2 for mobile" style="max-width: 100%;">
+        </picture> -->
+        
 
         <!-- <div class="footer">
             <button class="custom-btn btn-7" 
