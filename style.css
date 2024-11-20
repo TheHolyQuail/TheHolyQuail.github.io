@@ -157,6 +157,36 @@ button {
   border: none;
 } */
 
+/* figure {
+    container-name: figure;
+    --featured: true;
+}
+
+@container figure style(--featured: true) {
+    img {
+
+    }
+
+    figcaption {
+
+    }
+} */
+/* .checkable-body:has(.ios-device) .container-fluid {
+    background-color: rgb(49, 181, 47);
+} */
+
+/* FOR TEST DIV TO CHECK STYLING: VVV */
+/* .pdf-supported .TARGET {
+    display: block;
+    background-color: rgb(49, 181, 47);
+}
+
+.ios-device .TARGET {
+    display: block;
+    background-color: rgb(216, 21, 122);
+} */
+/* FOR TEST DIV TO CHECK STYLING: ^^^ */
+
 @media screen and (max-width: 768px) {
     .pdf-viewer {
         display: none;
@@ -188,7 +218,8 @@ button {
 }
 
 @media screen and (min-width: 769px) {
-    .pdf-container {
+    /* FOR NON IOS */
+    .pdf-supported .pdf-container {
         flex: 1;
         display: flex;
         justify-content: center;
@@ -196,7 +227,7 @@ button {
         background: linear-gradient(60deg, rgb(19, 13, 45) 0%, rgb(10, 94, 105) 100%);
     }
     
-    .pdf-viewer {
+    .pdf-supported .pdf-viewer {
         width: 90%;
         height: 90%;
         border: 1px solid rgba(255, 255, 255, 0.3); /* Optional border for better visibility */
@@ -204,9 +235,40 @@ button {
         background-color: #282c34; /* Fallback color if the PDF does not fill the iframe */
     }
 
-    .png-viewer {
+    .pdf-supported .png-viewer {
         display: none;
-      }
+        /* display: var(--can-render-pdf) == "true" ? none : block; ERRORS OUT*/
+    }
+
+    /* FOR IOS: */
+    .ios-device .pdf-viewer {
+        display: none;
+    }
+
+    .ios-device .pdf-container {
+        display: none;
+    }
+
+    .ios-device .png-viewer {
+        display: block;
+        width: 100%;
+
+        padding: 1em; /* Padding inside the content */
+        background: linear-gradient(60deg, rgb(19, 13, 45) 0%, rgb(10, 94, 105) 100%);
+    }
+
+    .ios-device .content {
+        flex: 1; /* Take up available vertical space */
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
+    
+    .ios-device .png-viewer img {
+        width: 100%; /* Make the images responsive */
+        height: auto; /* Maintain aspect ratio */
+        display: block;
+        margin: 0 auto; /* Center images horizontally */
+    }
+
 }
 
 
