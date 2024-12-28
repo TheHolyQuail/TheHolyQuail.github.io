@@ -40,12 +40,39 @@ p {
 }
 
 .buffer {
-  height: 50px;
+  height: 10vw;
 }
 
-.side-text {
+/* COMMENTED OUT FOR TEST BELOW */
+/* .side-text {
   text-align: left;
-  font-size: 2vw;
+  font-size: 1.5vw;
+} */
+
+/* TEST START */
+
+/* Setting the maximum width of containers on the main page */
+.container {
+  max-width: 65%;
+}
+
+
+.side-text {
+  flex: 1; /* Allow the text to grow */
+  overflow: hidden; /* Prevent content overflow */
+  /* max-height: 100%; Constrain the height to the image's height */
+  text-align: left; /* Align text properly */
+  /* Adjust font size dynamically */
+  /* font-size: calc(1.5vw + 0.5em); */
+  font-size: 1.75vw;
+}
+/* TEST END */
+
+.image-border {
+  border: 5px solid #3498db; /* Light blue solid border */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: -15px 20px 8px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+  /* padding: 10px; Spacing between image and border */
 }
 
 .header {

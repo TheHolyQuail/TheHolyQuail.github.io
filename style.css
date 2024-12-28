@@ -225,14 +225,23 @@ button {
         justify-content: center;
         align-items: center;
         background: linear-gradient(60deg, rgb(19, 13, 45) 0%, rgb(10, 94, 105) 100%);
+        /* min-height: 100vh; Full viewport height */
+        /* background-color: linear-gradient(60deg, rgb(19, 13, 45) 0%, rgb(10, 94, 105) 100%); Optional: Set a background color */
     }
     
     .pdf-supported .pdf-viewer {
         width: 90%;
         height: 90%;
-        border: 1px solid rgba(255, 255, 255, 0.3); /* Optional border for better visibility */
+        border-radius: 10px;
+        margin-left: 10%;
+        margin-right: 10%;
+        /* border: 2px solid rgba(87, 59, 213, 0.5); */
+        border: 1px solid rgba(255, 255, 255, 0.3);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add a shadow for a polished look */
         background-color: #282c34; /* Fallback color if the PDF does not fill the iframe */
+        /* border: none; */
+        /* width: auto; Let it take the width of the PDF */
+        /* height: 100vh; Maintain full viewport height */
     }
 
     .pdf-supported .png-viewer {
