@@ -1,355 +1,204 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Portfolio</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
     <link rel="icon" href="images/logo.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/jquery.flexslider-min.js"></script>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <!-- Place in the <head>, after the three links -->
-    <script type="text/javascript" charset="utf-8">
-        // source documentation: https://www.jqueryscript.net/slider/Awesome-Fully-Responsive-jQuery-Slider-FlexSlider.html
-        //                          https://codepen.io/joshcavinder/pen/gQZYOY
-        $(document).ready(function() {
-            $('.flexslider').flexslider({
-                // Select your animation type
-                // "fade" or "slide" 
-                animation: "slide",
+  <!-- <title>Portfolio with Full-Page Scroll</title> -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">  
+  <link rel="stylesheet" href="portfolioStyle.css">
+</head>
+<body>
 
-                // Should the animation loop? 
-                // If false, directionNav will received "disable" classes at either end 
-                animationLoop: true,
-
-                // Create pause/play dynamic element
-                pausePlay: true,
-
-                // Set the text for the "pause" pausePlay item           
-                pauseText: "Pause", 
-
-                // Set the text for the "play" pausePlay item            
-                playText: "Play",
-
-                // Requires jquery.mousewheel.js 
-                // (https://github.com/brandonaaron/jquery-mousewheel)
-                // Allows slider navigating via mousewheel 
-                mousewheel: false,
-
-                // no clue what this is...
-                rtl: true,
-
-                // Select the sliding direction
-                // "horizontal" or "vertical"        
-                direction: "horizontal",  
-
-                // Reverse the animation direction  
-                reverse: false,
-
-                // The slide that the slider should start on. Array notation 
-                // (0 = first slide)     
-                startAt: 0,
-
-                // Set an initialization delay, in milliseconds           
-                initDelay: 0,
-
-                // Randomize slide order        
-                randomize: false,
-
-                // Pause the slideshow when interacting with control elements, 
-                // highly recommended.
-                pauseOnAction: true, 
-
-                // Pause the slideshow when hovering over slider, 
-                // then resume when no longer hovering      
-                pauseOnHover: false,  
-
-                // Pause the slideshow when tab is invisible, resume when visible. 
-                // Provides better UX, lower CPU usage.         
-                pauseInvisible: true,
-
-                // // Determines the easing method used in jQuery transitions. 
-                // // jQuery easing plugin is supported!          
-                // easing: "swing",              
-
-                // // Allow height of the slider to animate smoothly in horizontal mode    
-                // smoothHeight: false,      
-
-                // Animate slider automatically      
-                slideshow: true,       
-
-                // Set the speed of the slideshow cycling, in milliseconds         
-                slideshowSpeed: 4000,  
-
-                // Set the speed of animations, in milliseconds         
-                animationSpeed: 500, 
-
-                // // Fade in the first slide when animation type is "fade"        
-                // fadeFirstSlide: true,  
-
-                // // Whether or not to put captions on thumbnails when using the "thumbnails" controlNav.         
-                // thumbCaptions: false,           
-
-                // // Slider will use CSS3 transitions if available    
-                // useCSS: true,     
-
-                // Allow touch swipe navigation of the slider on touch-enabled devices              
-                touch: true,        
-
-                // // If using <a href="https://www.jqueryscript.net/tags.php?/video/">video</a> in the slider, will prevent CSS3 <a href="https://www.jqueryscript.net/tags.php?/3D/">3D</a> Transforms to avoid graphical glitches           
-                // video: false,                   
-
-                // // Create navigation for paging control of each slide? 
-                // // Note: Leave true for manualControls usage
-                // controlNav: true,     
-
-                // // Create navigation for previous/next navigation?      
-                // directionNav: true,          
-
-                // // Set the text for the "previous" directionNav item   
-                // prevText: "Previous",       
-
-                // // Set the text for the "next" directionNav item    
-                // nextText: "Next",               
-
-                // Allow slider navigating via keyboard left/right keys
-                keyboard: true,        
-
-                // Allow keyboard navigation to affect multiple sliders. 
-                // Default behavior cuts out keyboard navigation with more than one slider present.         
-                multipleKeyboard: false,                      
-
-                // // jQuery Object/Selector: Declare which container the navigation elements should be appended too. 
-                // // Default container is the FlexSlider element. 
-                // // Example use would be $(".flexslider-container"). 
-                // // Property is ignored if given element is not found.
-                // controlsContainer: "",   
-
-                // // jQuery Object/Selector: Custom prev / next button. 
-                // // Must be two jQuery elements. 
-                // // In order to make the events work they have to have the classes "prev" and "next" (plus namespace)
-                // customDirectionNav: "",                            
-
-                // Box-model width of individual carousel items, including horizontal borders and padding.
-                itemWidth: 0,       
-
-                // Margin between carousel items.            
-                itemMargin: 0,  
-
-                // Minimum number of carousel items that should be visible. 
-                // Items will resize fluidly when below this.                
-                minItems: 1,   
-
-                // Maxmimum number of carousel items that should be visible. 
-                // Items will resize fluidly when above this limit.                
-                maxItems: 0,  
-
-                // Number of carousel items that should move on animation. 
-                // If 0, slider will move all visible items.                  
-                move: 0,             
-
-                // Whether or not to allow a slider comprised of a single slide           
-                allowOneSlide: true,           
-
-                // // Fires when the slider loads the first slide
-                // start: function(){},  
-
-                // // Fires asynchronously with each slider animation
-                // before: function(){},  
-
-                // // Fires after each slider animation completes         
-                // after: function(){}, 
-
-                // // Fires when the slider reaches the last slide (asynchronous)           
-                // end: function(){},  
-
-                // // Fires after a slide is added            
-                // added: function(){},  
-
-                // // Fires after a slide is removed          
-                // removed: function(){},    
-
-                // // Fires after the slider is initially setup       
-                // init: function() {}  
-            });
-        });
-    </script>
-    <style>
-        /* SLIDE STYLES */
-
-        @import "https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/flexslider.min.css";
-
-        .flexslider {
-            height: 90vh;
-            /* max-height: 100%; */
-            /* overflow: hidden; */
-            overflow: visible;
-            border-style: hidden;
-        }
-        .flexslider img {
-            /* object-fit: cover; */
-            object-fit: scale-down;
-            /* object-fit: fill; */
-        }
-        .flexslider, .flex-viewport, .slides, img {
-            max-height: 90vh;
-            /* max-height: 100%; */
-            height: auto;
-            /* align-self: stretch; */
-        }
-
-        /* quick fix: https://stackoverflow.com/questions/31463723/flexsliders-arrows-is-like-a-cut-bottom-what-to-do */
-        .flex-direction-nav a {
-            height: 45px;
-        }
-        .flex-pauseplay a {
-            height: 30px;
-        }
-
-        .flex-pauseplay {
-            text-shadow: 0 0 3px #666666;
-        }
-
-        /* GENERAL STYLES */
-        h1{
-            font-size : 5vw;
-        }
-
-        h4{
-            font-size : 2vw;
-        }
-
-        p{
-            font-size: 2vw;
-        }
-
-        body, html {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            /* background-color: rgb(43, 34, 65); */
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        /* CONTENT FORMATING */
-
-        .first-row {
-            /* background-color: rgb(40, 0, 135); */
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .second-row { 
-            flex-grow: 1;
-            border: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .slideshow {
-            /* background-color: rgb(43, 34, 65); */
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        /* .bordered-image {
-           border-radius: 0px;
-           border-color: rgb(135, 13, 13);
-           border-style: solid; 
-        } */
-
-        /* This is to shift the content to start below the nav bar */
-        .topOffset{
-            height: 60px;
-        }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar fixed-top navbar-expand-lg bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="images/logo.png" alt="ENW" width="30px">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
-                    <a class="nav-link active" href="portfolio.html">Portfolio</a>
-                    <a class="nav-link" href="resume.html">Resume</a>
-                </div>
+  <!-- Bootstrap nav bar -->
+  <nav class="navbar fixed-top navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo.png" alt="ENW" width="30px">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link active" href="portfolio.html">Portfolio</a>
+                <a class="nav-link" href="resume.html">Resume</a>
             </div>
         </div>
-    </nav>
-        <div class="first-row topOffset"></div>
-        
-        <div class="flexslider slideshow">
-            <ul class="slides">
-                <li>
-                <img src="images\slides\slide0.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide00.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide000.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide1.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide2.png" />
-                </li>
-<!--                 <li>
-                <img src="images\slides\slide3.png" />
-                </li> -->
-                <li>
-                <img src="images\slides\slide4.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide5.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide6.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide7.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide8.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide9.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide10.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide11.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide12.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide13.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide14.png" />
-                </li>
-                <li>
-                <img src="images\slides\slide15.png" />
-                </li>
-                <!-- <li>
-                <img src="images\slides\slide16.png" />
-                </li> -->
-                <!-- add more <li> elements as needed for each slide -->
-            </ul>
-        </div>
+    </div>
+</nav>
+    <div class="first-row topOffset"></div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-    </body>
+<!-- Floating navigation -->
+<div class="floating-nav">
+  <button onclick="scrollToSection(1)"><span class="icon">⌂</span> Top</button>
+  <button onclick="scrollToSection(2)"><span class="icon">⚡</span> EE</button>
+  <button onclick="scrollToSection(3)"><span class="icon">𓇲</span> ESE</button>
+  <button onclick="scrollToSection(4)"><span class="icon">⚙️</span> ME</button>
+  <!-- <button onclick="scrollToSection(5)"><span class="icon">💻</span> SWE</button> -->
+  <button onclick="scrollToSection(6)"><span class="icon">📊</span> DE</button>
+  <!-- <button onclick="scrollToSection(7)"><span class="icon">🔗</span> TPM</button> -->
+</div>
+
+<div class="scroll-container">
+  <!-- Section 1 -->
+  <div class="section" id="section-1">
+    <div class="container text-center">
+      <h1>Welcome to my Portfolio!</h1>
+      <p>Scroll or click a section button to explore my work...</p>
+      <!-- <img src="image1.jpg" class="img-fluid mb-3" alt="Project 1 Image"> -->
+      <!-- <a href="#" class="btn btn-primary">Learn More</a> -->
+    </div>
+  </div>
+  
+  <!-- Section 2 (EE) -->
+  <div class="section" id="section-2">
+    <div class="container text-center">
+      <h1>Electrical Projects (EE)</h1>
+      <!-- <p>A brief description of Project 2.</p> -->
+      <!-- <img src="image2.jpg" class="img-fluid mb-3" alt="Project 2 Image"> -->
+      <!-- <a href="#" class="btn btn-primary">Learn More</a> -->
+    </div>
+  </div>
+
+  <div class="section"> <!-- Electrical designs for mechatronics project -->
+    <div class="container text-center">
+      <img src="images/slides/slide000.png" class="slide img-fluid mb-3" alt="Electrical designs for mechatronics project">
+    </div>
+  </div>
+
+  <div class="section"> <!-- First version of high power ROV lighting system -->
+    <div class="container text-center">
+      <img src="images/slides/slide6.png" class="slide img-fluid mb-3" alt="First version of high power ROV lighting system">
+    </div>
+  </div>
+
+  <div class="section"> <!-- Second version of high power ROV lighting system -->
+    <div class="container text-center">
+      <img src="images/slides/slide7.png" class="slide img-fluid mb-3" alt="Second version of high power ROV lighting system">
+    </div>
+  </div>
+
+  <div class="section"> <!-- Pocket sized digital connect four game on PCB -->
+    <div class="container text-center">
+      <img src="images/slides/slide9.png" class="slide img-fluid mb-3" alt="Pocket sized digital connect four game on PCB">
+    </div>
+  </div>
+
+  <!-- Section 3 (ESE) embedded software engineer -->
+  <div class="section" id="section-3">
+    <div class="container text-center">
+      <h1>Embedded Software Projects (ESE)</h1>
+      <!-- <p>A brief description of Project 3.</p> -->
+      <!-- <img src="image3.jpg" class="img-fluid mb-3" alt="Project 3 Image"> -->
+      <!-- <a href="#" class="btn btn-primary">Learn More</a> -->
+    </div>
+  </div>
+
+  <div class="section"> <!-- Special character focused HID keypad device -->
+    <div class="container text-center">
+      <img src="images/slides/slide10.png" class="slide img-fluid mb-3" alt="Special character focused HID keypad device">
+    </div>
+  </div>
+
+  <div class="section"> <!-- Custom Alarm Clock with Pomodoro Timer -->
+    <div class="container text-center">
+      <img src="images/slides/slide11.png" class="slide img-fluid mb-3" alt="Custom Alarm Clock with Pomodoro Timer">
+    </div>
+  </div>
+
+  <!-- Section 4 (ME) -->
+  <div class="section" id="section-4">
+    <div class="container text-center">
+      <h1>Mechanical Projects (ME)</h1>
+      <!-- <p>A brief description of Project 3.</p> -->
+      <!-- <img src="image3.jpg" class="img-fluid mb-3" alt="Project 3 Image"> -->
+      <!-- <a href="#" class="btn btn-primary">Learn More</a> -->
+    </div>
+  </div>
+
+  <div class="section"> <!-- Mechanical designs for mechatronics project -->
+    <div class="container text-center">
+      <img src="images/slides/slide00.png" class="slide img-fluid mb-3" alt="Mechanical designs for mechatronics project">
+    </div>
+  </div>
+
+  <div class="section"> <!-- Gener8 Mechanical design 1 - bender -->
+    <div class="container text-center">
+      <img src="images/slides/slide1.png" class="slide img-fluid mb-3" alt="Gener8 Mechanical design 1">
+    </div>
+  </div>
+
+  <div class="section"> <!-- Gener8 Mechanical design 2 - vial holder -->
+    <div class="container text-center">
+      <img src="images/slides/slide2.png" class="slide img-fluid mb-3" alt="Gener8 Mechanical design 2">
+    </div>
+  </div>
+
+  <div class="section"> <!-- Modular Electrical Test Bench (furniture) -->
+    <div class="container text-center">
+      <img src="images/slides/slide14.png" class="slide img-fluid mb-3" alt="Modular Electrical Test Bench (furniture)">
+    </div>
+  </div>
+
+  <!-- Maybe should remove since from high school -->
+  <div class="section"> <!-- Ball Storage and Loading -->
+    <div class="container text-center">
+      <img src="images/slides/slide12.png" class="slide img-fluid mb-3" alt="Ball Storage and Loading">
+    </div>
+  </div>
+
+  <!-- Section 6 (DE) -->
+  <div class="section" id="section-6">
+    <div class="container text-center">
+      <h1>Data Projects (DE)</h1>
+      <!-- <p>A brief description of Project 3.</p> -->
+      <!-- <img src="image3.jpg" class="img-fluid mb-3" alt="Project 3 Image"> -->
+      <!-- <a href="#" class="btn btn-primary">Learn More</a> -->
+    </div>
+  </div>
+
+  <div class="section"> <!-- Gener8 data analysis 1 - million line -->
+    <div class="container text-center">
+      <img src="images/slides/slide4.png" class="slide img-fluid mb-3" alt="Gener8 data analysis 1">
+    </div>
+  </div>
+
+  <div class="section"> <!-- Gener8 data analysis 2 - heating lifetime -->
+    <div class="container text-center">
+      <img src="images/slides/slide5.png" class="slide img-fluid mb-3" alt="Gener8 data analysis 2">
+    </div>
+  </div>
+  
+  <!-- Add more sections as needed -->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Smooth scrolling function
+  document.querySelector('.scroll-container').style.scrollBehavior = 'smooth';
+
+  // function scrollToSection(sectionNumber) {
+  //   const target = document.getElementById(`section-${sectionNumber}`);
+  //   target.scrollIntoView({ behavior: 'smooth' });
+  // }
+  function scrollToSection(sectionNumber) {
+    const target = document.getElementById(`section-${sectionNumber}`);
+    target.scrollIntoView({ behavior: 'auto' }); // Avoid conflicts by setting "auto"
+  }
+
+  // // Uncomment the following if I want resizing the window to automatically reset scroll to the top section
+  // window.addEventListener('resize', () => {
+  //   document.querySelector('.scroll-container').scrollTo(0, 0); // Reset to top
+  // });
+</script>
+
+</body>
 </html>
