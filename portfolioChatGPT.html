@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" aria-current="page" href="index.html">Home</a>
-                <a class="nav-link active" href="portfolio.html">Portfolio</a>
+                <a class="nav-link active" href="portfolioChatGPT.html">Portfolio</a>
                 <a class="nav-link" href="resume.html">Resume</a>
             </div>
         </div>
@@ -38,39 +38,142 @@
 
 <!-- Floating navigation -->
 <div class="floating-nav">
-  <button onclick="scrollToSection(1)">Section 1</button>
-  <button onclick="scrollToSection(2)">Section 2</button>
-  <button onclick="scrollToSection(3)">Section 3</button>
+  <button onclick="scrollToSection(1)"><span class="icon">⌂</span> Top</button>
+  <button onclick="scrollToSection(2)"><span class="icon">⚡</span> EE</button>
+  <button onclick="scrollToSection(3)"><span class="icon">𓇲</span> ESE</button>
+  <button onclick="scrollToSection(4)"><span class="icon">⚙️</span> ME</button>
+  <!-- <button onclick="scrollToSection(5)"><span class="icon">💻</span> SWE</button> -->
+  <button onclick="scrollToSection(6)"><span class="icon">📊</span> DE</button>
+  <!-- <button onclick="scrollToSection(7)"><span class="icon">🔗</span> TPM</button> -->
 </div>
 
 <div class="scroll-container">
   <!-- Section 1 -->
   <div class="section" id="section-1">
     <div class="container text-center">
-      <h1>Project 1</h1>
-      <p>A brief description of Project 1.</p>
-      <img src="image1.jpg" class="img-fluid mb-3" alt="Project 1 Image">
-      <a href="#" class="btn btn-primary">Learn More</a>
+      <h1>Welcome to my Portfolio!</h1>
+      <p>Scroll or click a section button to explore my work...</p>
+      <!-- <img src="image1.jpg" class="img-fluid mb-3" alt="Project 1 Image"> -->
+      <!-- <a href="#" class="btn btn-primary">Learn More</a> -->
     </div>
   </div>
   
-  <!-- Section 2 -->
+  <!-- Section 2 (EE) -->
   <div class="section" id="section-2">
     <div class="container text-center">
-      <h1>Project 2</h1>
-      <p>A brief description of Project 2.</p>
-      <img src="image2.jpg" class="img-fluid mb-3" alt="Project 2 Image">
-      <a href="#" class="btn btn-primary">Learn More</a>
+      <h1>Electrical Projects (EE)</h1>
+      <!-- <p>A brief description of Project 2.</p> -->
+      <!-- <img src="image2.jpg" class="img-fluid mb-3" alt="Project 2 Image"> -->
+      <!-- <a href="#" class="btn btn-primary">Learn More</a> -->
     </div>
   </div>
 
-  <!-- Section 3 -->
+  <div class="section"> <!-- Electrical designs for mechatronics project -->
+    <div class="container text-center">
+      <img src="images/slides/slide000.png" class="slide img-fluid mb-3" alt="Electrical designs for mechatronics project">
+    </div>
+  </div>
+
+  <div class="section"> <!-- First version of high power ROV lighting system -->
+    <div class="container text-center">
+      <img src="images/slides/slide6.png" class="slide img-fluid mb-3" alt="First version of high power ROV lighting system">
+    </div>
+  </div>
+
+  <div class="section"> <!-- Second version of high power ROV lighting system -->
+    <div class="container text-center">
+      <img src="images/slides/slide7.png" class="slide img-fluid mb-3" alt="Second version of high power ROV lighting system">
+    </div>
+  </div>
+
+  <div class="section"> <!-- Pocket sized digital connect four game on PCB -->
+    <div class="container text-center">
+      <img src="images/slides/slide9.png" class="slide img-fluid mb-3" alt="Pocket sized digital connect four game on PCB">
+    </div>
+  </div>
+
+  <!-- Section 3 (ESE) embedded software engineer -->
   <div class="section" id="section-3">
     <div class="container text-center">
-      <h1>Project 3</h1>
-      <p>A brief description of Project 3.</p>
-      <img src="image3.jpg" class="img-fluid mb-3" alt="Project 3 Image">
-      <a href="#" class="btn btn-primary">Learn More</a>
+      <h1>Embedded Software Projects (ESE)</h1>
+      <!-- <p>A brief description of Project 3.</p> -->
+      <!-- <img src="image3.jpg" class="img-fluid mb-3" alt="Project 3 Image"> -->
+      <!-- <a href="#" class="btn btn-primary">Learn More</a> -->
+    </div>
+  </div>
+
+  <div class="section"> <!-- Special character focused HID keypad device -->
+    <div class="container text-center">
+      <img src="images/slides/slide10.png" class="slide img-fluid mb-3" alt="Special character focused HID keypad device">
+    </div>
+  </div>
+
+  <div class="section"> <!-- Custom Alarm Clock with Pomodoro Timer -->
+    <div class="container text-center">
+      <img src="images/slides/slide11.png" class="slide img-fluid mb-3" alt="Custom Alarm Clock with Pomodoro Timer">
+    </div>
+  </div>
+
+  <!-- Section 4 (ME) -->
+  <div class="section" id="section-4">
+    <div class="container text-center">
+      <h1>Mechanical Projects (ME)</h1>
+      <!-- <p>A brief description of Project 3.</p> -->
+      <!-- <img src="image3.jpg" class="img-fluid mb-3" alt="Project 3 Image"> -->
+      <!-- <a href="#" class="btn btn-primary">Learn More</a> -->
+    </div>
+  </div>
+
+  <div class="section"> <!-- Mechanical designs for mechatronics project -->
+    <div class="container text-center">
+      <img src="images/slides/slide00.png" class="slide img-fluid mb-3" alt="Mechanical designs for mechatronics project">
+    </div>
+  </div>
+
+  <div class="section"> <!-- Gener8 Mechanical design 1 - bender -->
+    <div class="container text-center">
+      <img src="images/slides/slide1.png" class="slide img-fluid mb-3" alt="Gener8 Mechanical design 1">
+    </div>
+  </div>
+
+  <div class="section"> <!-- Gener8 Mechanical design 2 - vial holder -->
+    <div class="container text-center">
+      <img src="images/slides/slide2.png" class="slide img-fluid mb-3" alt="Gener8 Mechanical design 2">
+    </div>
+  </div>
+
+  <div class="section"> <!-- Modular Electrical Test Bench (furniture) -->
+    <div class="container text-center">
+      <img src="images/slides/slide14.png" class="slide img-fluid mb-3" alt="Modular Electrical Test Bench (furniture)">
+    </div>
+  </div>
+
+  <!-- Maybe should remove since from high school -->
+  <div class="section"> <!-- Ball Storage and Loading -->
+    <div class="container text-center">
+      <img src="images/slides/slide12.png" class="slide img-fluid mb-3" alt="Ball Storage and Loading">
+    </div>
+  </div>
+
+  <!-- Section 6 (DE) -->
+  <div class="section" id="section-6">
+    <div class="container text-center">
+      <h1>Data Projects (DE)</h1>
+      <!-- <p>A brief description of Project 3.</p> -->
+      <!-- <img src="image3.jpg" class="img-fluid mb-3" alt="Project 3 Image"> -->
+      <!-- <a href="#" class="btn btn-primary">Learn More</a> -->
+    </div>
+  </div>
+
+  <div class="section"> <!-- Gener8 data analysis 1 - million line -->
+    <div class="container text-center">
+      <img src="images/slides/slide4.png" class="slide img-fluid mb-3" alt="Gener8 data analysis 1">
+    </div>
+  </div>
+
+  <div class="section"> <!-- Gener8 data analysis 2 - heating lifetime -->
+    <div class="container text-center">
+      <img src="images/slides/slide5.png" class="slide img-fluid mb-3" alt="Gener8 data analysis 2">
     </div>
   </div>
   

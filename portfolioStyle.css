@@ -2,14 +2,17 @@
 
 h1{
     font-size : 5vw;
+    color: white;
 }
 
 h4{
     font-size : 2vw;
+    color: white;
 }
 
 p{
     font-size: 2vw;
+    color: white;
 }
 
 body, html {
@@ -27,10 +30,10 @@ body, html {
     -webkit-scroll-snap-type: y mandatory; /* Safari fallback */
     overflow-y: scroll;
     height: 100vh; /* Full viewport height */
-  }
+}
 
-  /* Each section settings */
-  .section {
+/* Each section settings */
+.section {
     scroll-snap-align: start;
     height: 100vh;
     display: flex;
@@ -42,10 +45,11 @@ body, html {
     margin: 0;     /* Remove unwanted margins */
     padding: 0;    /* Remove padding, adjust with child elements instead */
     box-sizing: border-box; /* Include borders in height calculation */
-  }
+    background: linear-gradient(60deg, rgb(19, 13, 45) 0%, rgb(10, 94, 105) 100%);
+}
 
   /* Floating rectangle */
-  .floating-nav {
+  /* .floating-nav {
     position: fixed;
     top: 50%;
     left: 10px;
@@ -56,21 +60,120 @@ body, html {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
     z-index: 1000;
-  }
+  } */
+/* new Default: Vertical buttons on the left side */
+.floating-nav {
+    position: fixed;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(102, 133, 232, 0.495);
+    /* background-color: rgb(10, 94, 105); */
+    /* background-color: transparent; */
+    border: 1px solid #070458;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
 
-  .floating-nav button {
-    display: block;
-    width: 100%;
-    margin: 5px 0;
+/* .floating-nav button {
+display: block;
+width: 100%;
+margin: 5px 0;
+padding: 10px;
+background-color: #042344;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+text-align: center;
+} */
+.floating-nav button {
     padding: 10px;
-    background-color: #007bff;
+    margin: 5px;
+    background-color: #042344;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    text-align: center;
-  }
+}
 
-  .floating-nav button:hover {
-    background-color: #0056b3;
-  }
+.floating-nav button:hover {
+    background-color: #063363;
+}
+
+  /* Responsive layout: Horizontal buttons at the bottom */
+@media (max-aspect-ratio: 1/1) {
+/* .floating-nav {
+    top: auto;
+    left: 0;
+    bottom: 10px;
+    right: 0;
+    transform: none;
+    
+    flex-direction: row;
+    justify-content: center;
+    
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px;
+} */
+.floating-nav {
+    top: auto;
+    left: 50%;
+    bottom: 10px; /* Keep 10px from the bottom */
+    transform: translateX(-50%); /* Center the panel horizontally */
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 0;
+    padding: 10px; /* Keep the padding consistent */
+    width: auto; /* Set the width to auto to allow natural button width in portrait */
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.floating-nav button {
+    margin: 0 5px; /* Horizontal spacing */
+}
+}
+
+/* Style Unicode Icons as all white to match font */
+.icon {
+    color: white; /* Makes the icon white */
+}
+
+/* Slide image styling */
+/* Default image behavior (applies to both portrait and landscape) */
+.slide {
+    width: 100%; /* Default to 100% of container width */
+    height: auto; /* Maintain aspect ratio by adjusting height automatically */
+    object-fit: contain; /* Ensure the entire image is visible, no cropping */
+    /*object-fit: cover;*/ /* Ensure the image covers the container while maintaining aspect ratio */
+}
+  
+/* Portrait mode: Image fills the screen width */
+@media (max-aspect-ratio: 1/1) {
+    .slide {
+        width: 100vw; /* Use 100% of the viewport width */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+  
+/* Landscape mode: Image fills the screen height */
+@media (min-aspect-ratio: 1/1) {
+    .slide {
+        width: auto; /* Maintain natural width */
+        height: 80vh; /* Use 100% of the viewport height */
+        max-width: 100%; /* Ensure image doesn't exceed container width */
+        transform: translateY(10%); /* Adjust image Y position to avoid overlaps */
+        transform: translateX(4%); /* Adjust image X position to avoid overlaps */
+    }
+}
