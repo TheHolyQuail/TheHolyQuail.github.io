@@ -1,0 +1,76 @@
+/* GENERAL STYLES */
+
+h1{
+    font-size : 5vw;
+}
+
+h4{
+    font-size : 2vw;
+}
+
+p{
+    font-size: 2vw;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* font-family: Tahoma, sans-serif; */
+    font-family: 'Lexend', sans-serif;
+}
+
+/* Container settings for scroll snapping */
+.scroll-container {
+    scroll-snap-type: y mandatory;
+    -webkit-scroll-snap-type: y mandatory; /* Safari fallback */
+    overflow-y: scroll;
+    height: 100vh; /* Full viewport height */
+  }
+
+  /* Each section settings */
+  .section {
+    scroll-snap-align: start;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    color: #343a40;
+    border-bottom: 1px solid #ddd;
+    margin: 0;     /* Remove unwanted margins */
+    padding: 0;    /* Remove padding, adjust with child elements instead */
+    box-sizing: border-box; /* Include borders in height calculation */
+  }
+
+  /* Floating rectangle */
+  .floating-nav {
+    position: fixed;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+  }
+
+  .floating-nav button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .floating-nav button:hover {
+    background-color: #0056b3;
+  }
