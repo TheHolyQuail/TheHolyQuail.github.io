@@ -1,0 +1,446 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Converter</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .unit-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .unit-row > * {
+      flex: 1 1 auto;
+      min-width: 100px;
+    }
+  </style>
+</head>
+<body>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Unit Converter</h2>
+
+  <form onsubmit="convertUnits(); return false;">
+    <div class="unit-row mb-3">
+      <select class="form-select" id="fromPrefix"></select>
+      <select class="form-select" id="fromUnit"></select>
+      <input type="number" class="form-control" id="fromValue" placeholder="Enter value" required>
+      <button type="submit" class="btn btn-primary">Convert</button>
+      <select class="form-select w-auto" id="category" onchange="updateUnits()">
+        <option value="length">Length</option>
+        <option value="resistance">Resistance</option>
+        <option value="capacitance">Capacitance</option>
+        <option value="voltage">Voltage</option>
+      </select>
+      <span class="mx-2">→</span>
+      <select class="form-select" id="toPrefix"></select>
+      <select class="form-select" id="toUnit"></select>
+      <input type="text" class="form-control" id="toValue" placeholder="Result" readonly>
+    </div>
+  </form>
+</div>
+
+<script>
+  const categories = {
+    length: {
+      units: {
+        "mil (imperial)": 0.0000254,
+        "inch (imperial)": 0.0254,
+        "foot (imperial)": 0.3048,
+        "yard (imperial)": 0.9144,
+        "mile (imperial)": 1609.344,
+        "meter": 1
+      },
+      allowPrefix: unit => unit === "meter"
+    },
+    resistance: {
+      units: {
+        "ohm": 1
+      },
+      allowPrefix: () => true
+    },
+    capacitance: {
+      units: {
+        "farad": 1
+      },
+      allowPrefix: () => true
+    },
+    voltage: {
+      units: {
+        "volt": 1
+      },
+      allowPrefix: () => true
+    }
+  };
+
+  const prefixes = {
+    "": 1,
+    "milli": 1e-3,
+    "centi": 1e-2,
+    "kilo": 1e3,
+    "mega": 1e6
+  };
+
+  function populate(select, options) {
+    select.innerHTML = '';
+    for (let key in options) {
+      const option = new Option(key || '(base)', key);
+      select.add(option);
+    }
+  }
+
+  function updateUnits() {
+    const category = document.getElementById("category").value;
+    const fromUnit = document.getElementById("fromUnit");
+    const toUnit = document.getElementById("toUnit");
+    const fromPrefix = document.getElementById("fromPrefix");
+    const toPrefix = document.getElementById("toPrefix");
+
+    const catData = categories[category];
+    const unitKeys = Object.keys(catData.units);
+
+    populate(fromUnit, catData.units);
+    populate(toUnit, catData.units);
+
+    const fromSelected = fromUnit.value;
+    const toSelected = toUnit.value;
+
+    fromPrefix.hidden = !catData.allowPrefix(fromSelected);
+    toPrefix.hidden = !catData.allowPrefix(toSelected);
+    populate(fromPrefix, prefixes);
+    populate(toPrefix, prefixes);
+
+    fromUnit.onchange = () => {
+      fromPrefix.hidden = !catData.allowPrefix(fromUnit.value);
+    };
+    toUnit.onchange = () => {
+      toPrefix.hidden = !catData.allowPrefix(toUnit.value);
+    };
+  }
+
+  function convertUnits() {
+    const category = document.getElementById("category").value;
+    const fromPrefix = document.getElementById("fromPrefix").value;
+    const toPrefix = document.getElementById("toPrefix").value;
+    const fromUnit = document.getElementById("fromUnit").value;
+    const toUnit = document.getElementById("toUnit").value;
+    const input = parseFloat(document.getElementById("fromValue").value);
+
+    const catData = categories[category];
+    const fromBase = input * prefixes[fromPrefix] * catData.units[fromUnit];
+    const toValue = fromBase / (prefixes[toPrefix] * catData.units[toUnit]);
+
+    document.getElementById("toValue").value = toValue.toFixed(6);
+  }
+
+  updateUnits();
+</script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <link rel="icon" href="images/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">    
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="bg-custom">
+<nav class="navbar fixed-top navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"> 
+            <img src="../images/logo.png" alt="ENW" width="40" height="40"> 
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+            <a class="nav-link" href="../portfolio.html">Portfolio</a>
+            <a class="nav-link" href="../resume.html">Resume</a>
+            <a class="nav-link active" href="../calculators.html">Calculators</a>
+            <!-- <a class="nav-link disabled">Random</a> -->
+        </div>
+        </div>
+    </div>
+</nav>
+<div class="topOffset">
+    <!-- nothing -->
+</div>
+
+<!-- <div class="container mt-5 pt-4"> -->
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Unit Converter</h1>
+
+  <form onsubmit="convertUnits(); return false;">
+    <!-- Left side dropdowns: -->
+    <div class="row g-3">
+        <div class="col-md-6">
+            <h5>From:</h5>
+            <!-- <select class="form-select mb-2" id="fromSystem" onchange="updateUnits()"> 
+            <option value="metric">Metric</option>
+            <option value="imperial">Imperial</option>
+            </select> -->
+            <select class="form-select mb-2" id="fromUnit" onchange="updateUnits()"></select>
+            <select class="form-select mb-2" id="fromPrefix"></select>
+            <!-- <input type="number" class="form-control" id="fromValue" placeholder="Value" required> -->
+            <input type="number" class="form-control mt-2" id="fromValue" placeholder="Enter value" step="any" required>
+            <input type="text" class="poltergeist form-control mt-2" id="aaaa" placeholder="aaaa" readonly>
+        </div>
+
+        <!-- Right side dropdowns: -->
+        <div class="col-md-6">
+            <h5>To:</h5>
+            <!-- <select class="form-select mb-2" id="toSystem" onchange="updateUnits()"> 
+            <option value="metric">Metric</option>
+            <option value="imperial">Imperial</option>
+            </select> -->
+            <select class="form-select mb-2" id="toUnit" onchange="updateUnits()"></select>
+            <select class="form-select mb-2" id="toPrefix"></select>
+            <input type="text" class="form-control mt-2" id="toValue" placeholder="Result" readonly>
+            <input type="text" class="form-control mt-2" id="toValueSci" placeholder="Scientific notation" readonly>
+        </div>
+    </div>
+
+    <!-- Category selection and submit button: -->
+    <div class="d-flex align-items-center mt-4 gap-3">
+      <button type="submit" class="btn btn-primary">Convert</button>
+      <div>
+        <label for="category" class="form-label mb-0 me-2">Category:</label>
+        <select class="form-select d-inline w-auto" id="category" onchange="updateUnits()">
+          <option value="length">Length</option>
+          <option value="voltage">Voltage</option>
+          <option value="capacitance">Capacitance</option>
+          <option value="resistance">Resistance</option>
+        </select>
+      </div>
+      <div>
+        <label for="precision" class="form-label mb-0 me-2">Calc. Precision:</label>
+        <input type="number" class="d-inline w-auto" id="precision" placeholder="Ender Value" value="3" required>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+
+    const standardPrefixes = {
+        "": 1,
+        "pico":1e-12,
+        "nano":1e-9,
+        "micro":1e-6,
+        "milli": 1e-3,
+        "_": 1,
+        "kilo": 1e3,
+        "mega": 1e6
+    };
+
+    const metricLengthPrefixes = {
+        "": 1,
+        "pico":1e-12,
+        "nano":1e-9,
+        "micro":1e-6,
+        "milli": 1e-3,
+        "centi": 1e-2,
+        "_": 1,
+        "kilo": 1e3,
+        "mega": 1e6
+    };
+
+    const imperialLengthPrefixes = {
+        // length: {
+        "mil": 0.0000254,
+        "inch": 0.0254,
+        "foot": 0.3048,
+        "yard": 0.9144,
+        "mile": 1609.344
+    };
+
+    const categories = {
+        length: {
+            units: {
+                "meter": 1,
+                "imperial": 1
+            },
+            getPrefixes: unit => {
+                if (unit === "meter") {
+                    return metricLengthPrefixes;
+                } else if (unit === "imperial") {
+                    return imperialLengthPrefixes;
+                } else {
+                    return { "": 1 };
+                }
+            }
+        },
+        resistance: {
+            units: {
+            "ohm": 1
+            },
+            getPrefixes: unit => { return standardPrefixes;}
+        },
+        capacitance: {
+            units: {
+            "farad": 1
+            },
+            getPrefixes: unit => { return standardPrefixes;}
+        },
+        voltage: { // may want to add electron volts or something?
+            units: {
+            "volt": 1
+            },
+            getPrefixes: unit => { return standardPrefixes;}
+        }
+    };
+
+    function populate(select, options) {
+        select.innerHTML = '';
+        for (let key in options) {
+            const option = new Option(key || '(base)', key);
+            select.add(option);
+        }
+    }
+
+    function updateUnits() {
+        const category = document.getElementById("category").value; // Pull current conversion categoty
+        // Get the elements to be updated:
+        const fromUnit = document.getElementById("fromUnit"); 
+        const toUnit = document.getElementById("toUnit");
+        const fromPrefix = document.getElementById("fromPrefix");
+        const toPrefix = document.getElementById("toPrefix");
+
+        const catData = categories[category]; // find the category to have data drawn from
+        const unitKeys = Object.keys(catData.units); // extract the unit options
+        // console.log(unitKeys); // <-------!!!!!! test print
+
+        // populate the unit dropdowns with the options
+        populate(fromUnit, catData.units);
+        populate(toUnit, catData.units);
+
+        function updatePrefixes(unitSelect, prefixSelect) {
+            const unit = unitSelect.value;
+            const prefixes = catData.getPrefixes ? catData.getPrefixes(unit) : {};
+            populate(prefixSelect, prefixes);
+            prefixSelect.hidden = Object.keys(prefixes).length <= 1;
+        }
+
+        updatePrefixes(fromUnit, fromPrefix);
+        updatePrefixes(toUnit, toPrefix);
+
+        fromUnit.onchange = () => updatePrefixes(fromUnit, fromPrefix);
+        toUnit.onchange = () => updatePrefixes(toUnit, toPrefix);
+    }
+
+    function convertUnits() {
+        const category = document.getElementById("category").value;
+        const fromPrefixKey = document.getElementById("fromPrefix").value;
+        const toPrefixKey = document.getElementById("toPrefix").value;
+        const fromUnit = document.getElementById("fromUnit").value;
+        const toUnit = document.getElementById("toUnit").value;
+        const input = parseFloat(document.getElementById("fromValue").value);
+        const precision = parseFloat(document.getElementById("precision").value);
+
+        const catData = categories[category];
+
+        const getPrefix = catData.getPrefixes || (() => ({}));
+
+        const fromPrefix = getPrefix(fromUnit)[fromPrefixKey] || 1;
+        const toPrefix = getPrefix(toUnit)[toPrefixKey] || 1;
+
+        const fromUnitFactor = catData.units[fromUnit] || 1;
+        const toUnitFactor = catData.units[toUnit] || 1;
+
+        const fromBase = input * fromUnitFactor * fromPrefix;
+        const result = fromBase / (toUnitFactor * toPrefix);
+
+        document.getElementById("toValue").value = result.toFixed(precision); // place the result in the output box at wanted precision
+
+        if (Math.abs(result) >= 1e3 || (Math.abs(result) > 0 && Math.abs(result) < 1e-3)) {
+            // sciField.style.display = "block";
+            // sciField.value = result.toExponential(6);
+            document.getElementById("toValueSci").value = result.toExponential(precision);
+            document.getElementById("toValueSci").hidden = false;
+        } else {
+            // sciField.style.display = "none";
+            // sciField.value = "";
+            document.getElementById("toValueSci").hidden = true;
+        }
+        // const prefixSelect = document.getElementById("toValueSci");
+        // prefixSelect.hidden = Object.keys(prefixes).length <= 1;
+    }
+
+    updateUnits(); // initialize
+
+    // function convertUnits() {
+    //     const category = document.getElementById("category").value;
+    //     const fromSystem = document.getElementById("fromSystem").value;
+    //     const toSystem = document.getElementById("toSystem").value;
+
+    //     const fromPrefix = document.getElementById("fromPrefix").value;
+    //     const toPrefix = document.getElementById("toPrefix").value;
+
+    //     const fromUnit = document.getElementById("fromUnit").value;
+    //     const toUnit = document.getElementById("toUnit").value;
+
+    //     const inputValue = parseFloat(document.getElementById("fromValue").value);
+
+    //     let valueInBase;
+
+    //     if (fromSystem === "metric") {
+    //         valueInBase = inputValue * prefixes[fromPrefix];
+    //     } else {
+    //         valueInBase = inputValue * imperialUnits[category][fromUnit];
+    //     }
+
+    //     let outputValue;
+    //     if (toSystem === "metric") {
+    //         outputValue = valueInBase / prefixes[toPrefix];
+    //     } else {
+    //         outputValue = valueInBase / imperialUnits[category][toUnit];
+    //     }
+
+    //     document.getElementById("toValue").value = outputValue.toFixed(6);
+    // }
+
+        // function updateUnits() {
+    //     const category = document.getElementById("category").value; // Pull current conversion categoty
+    //     // const fromSystem = document.getElementById("fromSystem").value;
+    //     // const toSystem = document.getElementById("toSystem").value;
+
+    //     const fromUnitSelect = document.getElementById("fromUnit");
+    //     const toUnitSelect = document.getElementById("toUnit");
+    //     const fromPrefix = document.getElementById("fromPrefix");
+    //     const toPrefix = document.getElementById("toPrefix");
+
+    //     fromUnitSelect.innerHTML = '';
+    //     toUnitSelect.innerHTML = '';
+
+    //     populatePrefixSelect(fromPrefix);
+    //     populatePrefixSelect(toPrefix);
+
+    //     const fromUnits = fromSystem === "metric" ? metricBaseUnits[category] : Object.keys(imperialUnits[category]);
+    //     const toUnits = toSystem === "metric" ? metricBaseUnits[category] : Object.keys(imperialUnits[category]);
+
+    //     fromUnits.forEach(unit => fromUnitSelect.add(new Option(unit, unit)));
+    //     toUnits.forEach(unit => toUnitSelect.add(new Option(unit, unit)));
+
+    //     fromPrefix.disabled = fromSystem !== "metric";
+    //     toPrefix.disabled = toSystem !== "metric";
+    // }
+    // function populatePrefixSelect(select) {
+    //     select.innerHTML = '';
+    //     for (const prefix in prefixes) {
+    //         const option = new Option(prefix || "(base)", prefix);
+    //         select.add(option);
+    //     }
+    // }
+</script>
+</body>
+</html>

@@ -283,7 +283,13 @@ button {
 }
 
 
-  
+.bg-custom {
+    background: linear-gradient(60deg, rgb(21, 121, 112) 0%, rgb(10, 94, 105) 100%);
+  }
+
+.poltergeist {
+    visibility: hidden;
+}
 
 /* div{
     width: 100%;
