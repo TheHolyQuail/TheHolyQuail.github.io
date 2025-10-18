@@ -305,6 +305,38 @@ button.tool_button:hover {
   border-radius: 0.5rem;
 }
 
+/* START BACKGROUND EFFECTS */
+.idex_content {
+  position:relative;
+  text-align:center;
+  /* background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%); */
+  background: linear-gradient(60deg, rgb(19, 13, 45) 0%, rgb(10, 94, 105) 100%);
+  color:white;
+  overflow: hidden; /* keep stars within bounds */
+}
+/* Generic star styling */
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle var(--twinkle-duration) ease-in-out infinite;
+  animation-delay: var(--twinkle-delay);
+  z-index: 0; /* important: stay behind everything else */
+  pointer-events: none; /* prevents it from blocking clicks */
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.7); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+.above_the_stars {
+  position: relative;
+  z-index: 1; /* ensures content is above the stars */
+}
+/* END BACKGROUND EFFECTS */
+
 /* div{
     width: 100%;
     height:100%;

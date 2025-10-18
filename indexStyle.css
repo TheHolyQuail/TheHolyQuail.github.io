@@ -184,6 +184,7 @@ p {
   /* padding: 10px; Spacing between image and border */
 }
 
+/* START BACKGROUND EFFECTS */
 .idex_content {
   position:relative;
   text-align:center;
@@ -192,9 +193,6 @@ p {
   color:white;
   overflow: hidden; /* keep stars within bounds */
 }
-
-/* START BACKGROUND EFFECTS */
-/* Static faint stars */
 /* Generic star styling */
 .star {
   position: absolute;
