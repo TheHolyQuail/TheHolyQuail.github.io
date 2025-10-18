@@ -47,6 +47,105 @@
         </div>
     </div>
 
+    <!-- ------------------------------------------------- -->
+    <!-- Braingeneers Electrical Design (EE Example) -->
+    <div class="section" id="braingeneers-design">
+    <div class="container-fluid py-5">
+        <div class="row align-items-center">
+        <!-- Left: Image grid -->
+        <div class="col-md-6 mb-4 mb-md-0">
+            <div class="image-grid">
+            <img src="images/project1_img1.jpg" alt="Braingeneers PCB layout" class="img-fluid rounded shadow-sm">
+            <img src="images/project1_img2.jpg" alt="Testing setup" class="img-fluid rounded shadow-sm">
+            <img src="images/project1_img3.jpg" alt="Final prototype" class="img-fluid rounded shadow-sm">
+            </div>
+        </div>
+
+        <!-- Right: Text -->
+        <div class="col-md-6">
+            <h2 class="mb-3">Braingeneers Electrical Design</h2>
+            <p>
+            Designed and assembled sensor interface PCBs for neural data acquisition. 
+            Implemented low-noise analog front-end, power management, and data routing.
+            </p>
+            <ul class="text-start">
+            <li>Tools: KiCad, Altium, STM32, I2C sensors</li>
+            <li>Focus: Signal integrity, compact routing, modularity</li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- /* Optional: Keep existing scroll behavior */
+.scroll-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Image grid layout */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Adjust text for mobile */
+@media (max-aspect-ratio: 1/1) {
+  .row {
+    flex-direction: column;
+  }
+  .image-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+} -->
+  <!-- The @media (max-aspect-ratio: 1/1) rule detects tall/narrow screens (phones, tablets) and automatically stacks the image grid above the text instead of side-by-side.
+
+You can tweak the minmax(140px, 1fr) values to control how many images appear per row.
+
+Using .container-fluid instead of .container ensures full-width scaling.
+
+Bootstrap handles spacing (py-5, mb-4, etc.) and responsiveness. -->
+
+<!-- Consider adding gentle momentum or partial overlap scrolling to make desktop use feel less “stuck.”
+For example: 
+.scroll-container {
+  scroll-snap-type: y proximity; /* instead of 'mandatory' */
+}
+  proximity allows free scroll if the user moves a lot, but still “snaps” if they stop near a section boundary — a perfect middle ground.
+  Use scroll-snap-type: y proximity; for desktop.
+Use scroll-snap-type: y mandatory; for mobile (stronger snapping).
+Detect via medioa query:
+@media (max-width: 768px) {
+  .scroll-container {
+    scroll-snap-type: y mandatory;
+  }
+}
+
+@media (min-width: 769px) {
+  .scroll-container {
+    scroll-snap-type: y proximity;
+  }
+}
+  -->
+
+
+    <!-- ------------------------------------------------- -->
+
     <!-- Gener8 heat pipe -->
     <!-- took away  container-fluid because it seemed to cause problems -->
     <div class="slide text-center outlineIt">

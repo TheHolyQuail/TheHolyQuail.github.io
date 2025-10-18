@@ -150,45 +150,6 @@ button {
     display: block; /* Set images to be "block" so they obey our auto margin */
 }
 
-/* vvv experimental device detection vvv */
-
-/* .pdf-viewer { OLD
-  display: block;
-  width: 100%;
-  height: 100vh;
-  border: none;
-} */
-
-/* figure {
-    container-name: figure;
-    --featured: true;
-}
-
-@container figure style(--featured: true) {
-    img {
-
-    }
-
-    figcaption {
-
-    }
-} */
-/* .checkable-body:has(.ios-device) .container-fluid {
-    background-color: rgb(49, 181, 47);
-} */
-
-/* FOR TEST DIV TO CHECK STYLING: VVV */
-/* .pdf-supported .TARGET {
-    display: block;
-    background-color: rgb(49, 181, 47);
-}
-
-.ios-device .TARGET {
-    display: block;
-    background-color: rgb(216, 21, 122);
-} */
-/* FOR TEST DIV TO CHECK STYLING: ^^^ */
-
 @media screen and (max-width: 768px) {
     .pdf-viewer {
         display: none;
@@ -289,6 +250,59 @@ button {
 
 .poltergeist {
     visibility: hidden;
+}
+
+/* FOR RESISTOR RATIONS APP */
+/* body {
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(60deg, rgb(19, 13, 45) 0%, rgb(10, 94, 105) 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+} */
+.calc_container {
+  background: rgba(255,255,255,0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 50vw;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    margin-left: 10vw;
+}
+h1.calc {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+label.calc {
+  display: block;
+  margin-top: 0.75rem;
+  font-weight: 500;
+}
+input.calc, select.calc, button.tool_button {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+button.tool_button {
+  background-color: rgb(10, 94, 105);
+  color: white;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+button.tool_button:hover {
+  background-color: rgb(13, 120, 135);
+}
+.calc_result {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  background: rgba(0,0,0,0.2);
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
 
 /* div{
