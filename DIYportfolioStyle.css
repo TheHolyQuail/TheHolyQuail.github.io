@@ -1,0 +1,248 @@
+/* GENERAL STYLES */
+
+h1{
+    font-size : 5vw;
+    color: white;
+}
+
+h2{
+    font-size : 3vw;
+    color: white;
+}
+
+h4{
+    font-size : 2vw;
+    color: white;
+}
+
+p{
+    /* font-size: 2vw; */
+    color: white;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* font-family: Tahoma, sans-serif; */
+    font-family: 'Lexend', sans-serif;
+    overflow: hidden; /* Disable body scroll */
+}
+
+/* Offset the entire main layout below the fixed navbar */
+.main-layout {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 70px); /* subtract navbar height */
+  margin-top: 70px;           /* visually push content below navbar */
+  overflow: hidden;           /* prevent body scroll */
+  background: linear-gradient(60deg, rgb(19, 13, 45) 0%, rgb(10, 94, 105) 100%);
+}
+
+
+/* Container settings for scroll snapping */
+.scroll-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+}
+
+/* new Default: Vertical buttons on the left side */
+.floating-nav {
+    position: fixed;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(102, 133, 232, 0.495);
+    /* background-color: rgb(10, 94, 105); */
+    /* background-color: transparent; */
+    border: 1px solid #070458;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.floating-nav button {
+    padding: 10px;
+    margin: 5px;
+    background-color: #042344;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.floating-nav button:hover {
+    background-color: #063363;
+}
+
+  /* Responsive layout: Horizontal buttons at the bottom */
+@media (max-aspect-ratio: 1/1) {
+    .floating-nav {
+        top: auto;
+        left: 50%;
+        bottom: 10px; /* Keep 10px from the bottom */
+        transform: translateX(-50%); /* Center the panel horizontally */
+        flex-direction: row;
+        justify-content: center;
+        border-radius: 0;
+        padding: 10px; /* Keep the padding consistent */
+        width: auto; /* Set the width to auto to allow natural button width in portrait */
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .floating-nav button {
+        margin: 0 5px; /* Horizontal spacing */
+    }
+}
+
+/* Style Unicode Icons as all white to match font */
+.icon {
+    color: white; /* Makes the icon white */
+}
+
+/* Slide image styling */
+/* Default image behavior (applies to both portrait and landscape) */
+.slide {
+    flex-shrink: 0;
+    width: 100%;
+    align-items: center;
+  padding: 1rem;
+    height: auto; /* Maintain aspect ratio by adjusting height automatically */
+    /* object-fit: contain; Ensure the entire image is visible, no cropping */
+   
+    /*object-fit: cover;*/ /* Ensure the image covers the container while maintaining aspect ratio */
+}
+
+.project-slide {
+    background-color: #121212;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* margin: 1rem 0; */
+}
+
+/* Add a subtle separation between image blocks */
+#slide_images img {
+  margin: 5px;
+  border-radius: 8px;
+}
+
+/* Use flexbox inside each slide's container to align image/text columns */
+.slide .container .row {
+  display: flex;
+  align-items: center; /* Vertically align text with image column */
+  justify-content: center;
+  gap: 1rem; /* space between image and text columns */
+}
+
+/* Make text column never taller than image column */
+.slide-text-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  justify-content: space-between;
+  text-align: left;
+  max-height: 80vh;
+}
+
+/* Add a consistent layout for image rows */
+#slide_images .row {
+  margin-bottom: 5px;
+}
+
+/* Portrait mode: Image fills the screen width */
+@media (max-aspect-ratio: 1.2/1) {
+    .slide {
+        width: 100vw; /* Use 100% of the viewport width */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    /* Stack image and text vertically */
+  .slide .container .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .slide-text-container {
+        max-height: none; /* Remove height limit when stacked */
+        text-align: center;
+        align-self: center
+    }
+  
+  /* Make text the same width as the image block */
+  #slide_text {
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+  }
+
+  #slide_text p {
+    text-align: left; /* still readable when stacked */
+    width: 100%;
+  }
+
+  /* Keep small gaps between images when stacked */
+  #slide_images img {
+    margin: 5px 0;
+    max-width: 90vw;
+    height: auto;
+  }
+
+  /* .slide .container .row > .col {
+  flex: 1 1 50%;
+  min-width: 300px;
+} */
+}
+  
+/* Landscape mode: Image fills the screen height */
+@media (min-aspect-ratio: 1.2/1) {
+    .slide {
+        width: auto; /* Maintain natural width */
+        height: auto; /* Use 100% of the viewport height -- previously 80vh*/
+        max-width: 100%; /* Ensure image doesn't exceed container width */
+        transform: translateY(10%); /* Adjust image Y position to avoid overlaps */
+        transform: translateX(4%); /* Adjust image X position to avoid overlaps */
+    }
+
+    #slide_text p {
+        text-indent: 2em;
+        text-align: left; /* still readable when stacked */
+        width: 100%;
+        margin: 0;
+        /* height: 100%; */
+    }
+}
+
+/* DEBUG */
+/* .outlineIt{
+    border: 3px solid limegreen;
+} */
+
+/* Each section settings */
+.section {
+    /* scroll-snap-align: start; */
+    /* height: 100vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    color: #343a40;
+    border-bottom: 1px solid #ddd;
+    margin: 0;     /* Remove unwanted margins */
+    padding: 0;    /* Remove padding, adjust with child elements instead */
+    box-sizing: border-box; /* Include borders in height calculation */
+    background: linear-gradient(60deg, rgb(19, 13, 45) 0%, rgb(10, 94, 105) 100%);
+}

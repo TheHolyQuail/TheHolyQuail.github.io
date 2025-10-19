@@ -46,8 +46,8 @@ collapse.addEventListener('hide.bs.collapse', () => {
 
   // Background starfield effect:
 const container = document.getElementById("idex_content");
-const numConstellations = 12;        // how many clumps of stars
-const starsPerConstellation = 6;    // stars per clump
+const numConstellations = 14;        // how many clumps of stars
+const starsPerConstellation = 7;    // stars per clump
 
 for (let i = 0; i < numConstellations; i++) {
   // pick a random central position for this constellation

@@ -9,7 +9,7 @@
     <title>E-Dub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="slideStyleDIY.css">
+    <link rel="stylesheet" href="DIYportfolioStyle.css">
 </head>
 
 <body>
@@ -25,7 +25,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" aria-current="page" href="index.html">Home</a>
-                    <a class="nav-link active" href="portfolio.html">Portfolio</a>
+                    <a class="nav-link active" href="portfolioDIY.html">Portfolio</a>
                     <a class="nav-link" href="resume.html">Resume</a>
                     <!-- <a class="nav-link disabled">Random</a> -->
                 </div>
@@ -39,160 +39,640 @@
 
     <!-- NOTE: I should try to figure out a way to get the text to move to under the images if the width to height ratio gets too a mobile like ratio -->
 
-    <!-- intro slide -->
-    <div class="slide container-fluid text-center outlineIt">
-        <div class="intro-slide-content">
-            <h1>A Project Portfolio</h1>
-            <h4>Eliot Wachtel</h4>
-        </div>
+<div class="main-layout">
+    <!-- Floating navigation -->
+    <div class="floating-nav">
+    <button onclick="scrollToSection(1)"><span class="icon">⌂</span> Top</button>
+    <button onclick="scrollToSection(2)"><span class="icon">⚡</span> EE</button>
+    <button onclick="scrollToSection(3)"><span class="icon">𓇲</span> ESE</button>
+    <button onclick="scrollToSection(4)"><span class="icon">⚙️</span> ME</button>
+    <button onclick="scrollToSection(5)"><span class="icon">💻</span> SWE</button>
+    <button onclick="scrollToSection(6)"><span class="icon">📊</span> DS</button>
+    <!-- <button onclick="scrollToSection(7)"><span class="icon">🔗</span> TPM</button> -->
     </div>
 
-    <!-- ------------------------------------------------- -->
-    <!-- Braingeneers Electrical Design (EE Example) -->
-    <div class="section" id="braingeneers-design">
-    <div class="container-fluid py-5">
-        <div class="row align-items-center">
-        <!-- Left: Image grid -->
-        <div class="col-md-6 mb-4 mb-md-0">
-            <div class="image-grid">
-            <img src="images/project1_img1.jpg" alt="Braingeneers PCB layout" class="img-fluid rounded shadow-sm">
-            <img src="images/project1_img2.jpg" alt="Testing setup" class="img-fluid rounded shadow-sm">
-            <img src="images/project1_img3.jpg" alt="Final prototype" class="img-fluid rounded shadow-sm">
+    <div class="scroll-container">
+        <!-- intro slide -->
+        <div class="slide container-fluid text-center outlineIt">
+            <div id="section-1" style="height: 30vh;"></div>
+            <div class="intro-slide-content">
+                <h1>A Project Portfolio</h1>
+                <h4>Eliot Wachtel</h4>
+                <div onclick="scrollToSection(2)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" style="padding-top: 1vh;" class="bi bi-caret-down-square-fill" viewBox="0 0 16 16">
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm4 4a.5.5 0 0 0-.374.832l4 4.5a.5.5 0 0 0 .748 0l4-4.5A.5.5 0 0 0 12 6z"/>
+                    </svg>
+                </div>
+            </div>
+            <!-- spacer -->
+            <div style="height: 40vh;"></div>
+        </div>
+
+        <div class="slide container-fluid text-center outlineIt">
+            <div class="section-slide-content">
+                <h1 id="section-2">Electrical Projects (EE)</h1>
             </div>
         </div>
 
-        <!-- Right: Text -->
-        <div class="col-md-6">
-            <h2 class="mb-3">Braingeneers Electrical Design</h2>
-            <p>
-            Designed and assembled sensor interface PCBs for neural data acquisition. 
-            Implemented low-noise analog front-end, power management, and data routing.
-            </p>
-            <ul class="text-start">
-            <li>Tools: KiCad, Altium, STM32, I2C sensors</li>
-            <li>Focus: Signal integrity, compact routing, modularity</li>
-            </ul>
-        </div>
-        </div>
-    </div>
-    </div>
-
-    <!-- /* Optional: Keep existing scroll behavior */
-.scroll-container {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
-}
-
-.section {
-  scroll-snap-align: start;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-}
-
-/* Image grid layout */
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0.75rem;
-}
-
-.image-grid img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-/* Adjust text for mobile */
-@media (max-aspect-ratio: 1/1) {
-  .row {
-    flex-direction: column;
-  }
-  .image-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  }
-} -->
-  <!-- The @media (max-aspect-ratio: 1/1) rule detects tall/narrow screens (phones, tablets) and automatically stacks the image grid above the text instead of side-by-side.
-
-You can tweak the minmax(140px, 1fr) values to control how many images appear per row.
-
-Using .container-fluid instead of .container ensures full-width scaling.
-
-Bootstrap handles spacing (py-5, mb-4, etc.) and responsiveness. -->
-
-<!-- Consider adding gentle momentum or partial overlap scrolling to make desktop use feel less “stuck.”
-For example: 
-.scroll-container {
-  scroll-snap-type: y proximity; /* instead of 'mandatory' */
-}
-  proximity allows free scroll if the user moves a lot, but still “snaps” if they stop near a section boundary — a perfect middle ground.
-  Use scroll-snap-type: y proximity; for desktop.
-Use scroll-snap-type: y mandatory; for mobile (stronger snapping).
-Detect via medioa query:
-@media (max-width: 768px) {
-  .scroll-container {
-    scroll-snap-type: y mandatory;
-  }
-}
-
-@media (min-width: 769px) {
-  .scroll-container {
-    scroll-snap-type: y proximity;
-  }
-}
-  -->
-
-
-    <!-- ------------------------------------------------- -->
-
-    <!-- Gener8 heat pipe -->
-    <!-- took away  container-fluid because it seemed to cause problems -->
-    <div class="slide text-center outlineIt">
-        <div class="slide-title">
-            <h2>Mechanical designs for Gener8 - Heat Pipe Bender</h2>
-        </div>
-        <div class="container text-center">
-            <div class="row">
-                <div class="col">
-                    <div class="row">
-                        <div class="col">
-                            <img src="images/DIY images/heatpipeBender1.png" alt="image 1" width="100%" height="100%">
+        <!-- Liquid in Tube -->
+        <div class="slide project-slide outlineIt">
+            <div class="slide-title text-center">
+                <h2>Liquid in Tube Sensor</h2>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-stretch">
+                    <div class="col outlineIt" id="slide_images">
+                        <div class="row">
+                            <div class="col">
+                                <img src="images/DIY images/liquidSense_individual/image_8.png" alt="image 1" width="100%" height="100%">
+                            </div>
+                            <div class="col">
+                                <img src="images/DIY images/liquidSense_individual/image_52.png" alt="image 2" width="100%" height="100%">
+                            </div>
                         </div>
-                        <div class="col">
-                            <img src="images/DIY images/heatpipeBender2.png" alt="image 2" width="100%" height="100%">
+                        <div class="row image-row">
+                            <div class="col">
+                                <img src="images/DIY images/liquidSense_individual/image_37.jpg" alt="image 3" width="100%" height="100%">
+                            </div>
                         </div>
                     </div>
-                    <div class="row image-row">
-                        <div class="col">
-                            <img src="images/DIY images/heatpipeBender3.png" alt="image 3" width="100%" height="100%">
-                        </div>
+                    <div class="col slide-text-container outlineIt", id="slide_text">
+                        <p class="slide-text">
+                            <b>Situation: </b>Automated brain cell maintenance device needed to monitor 
+                            microfluidic system flow to detect bubbles and blockages.
+                        </p>
+                        <p class="slide-text">
+                            <b>Task: </b>Developed non-contact liquid detection based on photogate.
+                        </p>
+                        <p class="slide-text">
+                            <b>Action: </b>Designed, prototyped, and tested analog amplification and 
+                            filtering circuitry and miniaturized the design onto a modular PCB for machine prototyping.
+                        </p>
+                        <p class="slide-text">
+                            <b>Result: </b>Fast and reliable differentiation between air and water with 
+                            negligible drift over multiple hours of continuous operation. 
+                        </p>
                     </div>
-                </div>
-                <div class="col">
-                    <p class="side-text">
-                        Situation: Mixed Engineering Internship at Gener8 assisting with alpha unit design for a biomedical testing product.
-                    </p>
-                    <p class="side-text">
-                        Task: Design and manufacture a device to repeatedly bend heat pipes to a specific angle without crimping or cracking.
-                    </p>
-                    <p class="side-text">
-                        Action: Designed in SolidWorks, Version controlled with SolidWorks PDM.
-                    </p>
-                    <p class="side-text">
-                        Result: A primarily 3D printed device using off the shelf parts from McMaster-Carr. 
-                    </p>
-                    <p class="side-text">
-                        ~15% of the cost of an off the shelf pipe bender. 
-                    </p>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Gener8 chemical cartridge -->
-    <div class="slide text-center outlineIt">
-        <div class="slide-title">
+        <!-- Solenoid Driver -->
+        <div class="slide project-slide outlineIt">
+            <div class="slide-title text-center">
+                <h2>Spiking Solenoid Driver</h2>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-stretch">
+                    <div class="col outlineIt" id="slide_images">
+                        <div class="row">
+                            <div class="col">
+                                <img src="images/DIY images/solenoidDrive/image_24.jpg" alt="image 1" width="100%" height="100%">
+                            </div>
+                            <div class="col">
+                                <img src="images/DIY images/solenoidDrive/image_50.png" alt="image 2" width="100%" height="100%">
+                            </div>
+                        </div>
+                        <div class="row image-row">
+                            <div class="col">
+                                <img src="images/DIY images/solenoidDrive/realFirstSolDrive.png" alt="image 3" width="100%" height="100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col slide-text-container outlineIt", id="slide_text">
+                        <p class="slide-text">
+                            <b>Situation: </b>Automated brain cell maintenance device needed to control series of solenoids.
+                        </p>
+                        <p class="slide-text">
+                            <b>Task: </b>Developed compact spiking solenoid driver with simple (on/off) digital control input.
+                        </p>
+                        <p class="slide-text">
+                            <b>Action: </b>Designed, prototyped, and space optimized the layout, fitting a nine channel controller into a 80x25mm package.
+                        </p>
+                        <p class="slide-text">
+                            <b>Result: </b>Easy to control design with flexibly ranged inputs for logic, hold, and spike voltage. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- servo Driver -->
+        <div class="slide project-slide outlineIt">
+            <div class="slide-title text-center">
+                <h2>Servo Control Board Optimized for Cell Culture</h2>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-stretch">
+                    <div class="col outlineIt" id="slide_images">
+                        <div class="row image-row">
+                            <div class="col">
+                                <img src="images/DIY images/servoControl/image_45.jpg" alt="image 3" width="100%" height="100%">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <img src="images/DIY images/servoControl/image_49.jpg" alt="image 1" width="100%" height="100%">
+                            </div>
+                            <div class="col">
+                                <img src="images/DIY images/servoControl/image_3.jpg" alt="image 2" width="100%" height="100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col slide-text-container outlineIt", id="slide_text">
+                        <p class="slide-text">
+                            <b>Situation: </b>Automated brain cell maintenance device needed control of 50 servos per 24 samples.
+                        </p>
+                        <p class="slide-text">
+                            <b>Task: </b>Develop modular servo control method to scale between since batch 
+                            and multi-batch systems while maintaining seamless control via existing IoT infrastructure.
+                        </p>
+                        <p class="slide-text">
+                            <b>Action: </b>Developed controller and power circuitry as well as Python driver 
+                            libraries to interface the devices with higher level control software.
+                        </p>
+                        <p class="slide-text">
+                            <b>Result: </b>Reliable operation ever since it was implemented in April 2024. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Electrical Designs for Mechatronics -->
+        <div class="slide project-slide outlineIt">
+            <div class="slide-title text-center">
+                <h2>Electrical Designs for Mechatronics Final Project</h2>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-stretch">
+                    <div class="col outlineIt" id="slide_images">
+                        <div class="row image-row">
+                            <div class="col">
+                                <img src="images/DIY images/mechatronicsElectrical/image_42.jpg" alt="image 1" width="100%" height="100%">
+                            </div>
+                            <div class="col">
+                                <img src="images/DIY images/mechatronicsElectrical/image_51.png" alt="image 2" width="100%" height="100%">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <img src="images/DIY images/mechatronicsElectrical/image_48.jpg" alt="image 3" width="100%" height="100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col slide-text-container outlineIt", id="slide_text">
+                        <p class="slide-text">
+                            <b>Situation: </b>ECE 118 (Mechatronics) final project.
+                        </p>
+                        <p class="slide-text">
+                            <b>Task: </b>Design a robot electrical system with stable power to all components 
+                            and capable of detecting 1.5 and 2 KHz IR beacons.
+                        </p>
+                        <p class="slide-text">
+                            <b>Action: </b>Designed in EAGLE, assembled on perfboard.
+                        </p>
+                        <p class="slide-text">
+                            Beacon detectors used multiple feedback bandpass filters based on the MCP6004 op amp.
+                        </p>
+                        <p class="slide-text">
+                            Power system uses two linear regulators for 5 and 3.3 volt output. Breakout boards 
+                            were designed and soldered to integrate power and make connecting peripherals to the Uno32 board easier.
+                        </p>
+                        <p class="slide-text">
+                            <b>Result: </b>All circuits functioned properly and reliably with detector circuits 
+                            having a range exceeding the seven foot game field. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- High Powered ROV Lighting System -->
+        <div class="slide project-slide outlineIt">
+            <div class="slide-title text-center">
+                <h2>High Powered ROV Lighting System</h2>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-stretch">
+                    <div class="col outlineIt" id="slide_images">
+                        <div class="row image-row">
+                            <div class="col">
+                                <img src="images/DIY images/ROV_LED/image_26.jpg" alt="image 1" width="100%" height="100%">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <img src="images/DIY images/ROV_LED/image_28.png" alt="image 2" width="100%" height="100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col slide-text-container outlineIt", id="slide_text">
+                        <p class="slide-text">
+                            <b>Situation: </b>The UCSC robotics club (Slugbotics) needed an improved lighting 
+                            system for underwater computer vision which needed to run off of 12 volts.
+                        </p>
+                        <p class="slide-text">
+                            <b>Task: </b>The research, sourcing, and design for manufacture of a 12 to 51 volt 
+                            boost converter power supply for my custom dimmable light ring system.
+                        </p>
+                        <p class="slide-text">
+                            <b>Action: </b>Designed in EAGLE. I used this redesign as an opportunity to use new routing techniques, 
+                            improving trace efficiency to limit excess heat generation within the sealed underwater use case.
+                        </p>
+                        <p class="slide-text">
+                            <b>Result: </b>Successfully powered the lights for underwater operation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide container-fluid text-center outlineIt">
+            <div class="section-slide-content">
+                <h1 id="section-3">Embedded Software Projects (ESE)</h1>
+            </div>
+        </div>
+
+        <!-- Pocket Sized Connect Four on a PCB -->
+        <div class="slide project-slide outlineIt">
+            <div class="slide-title text-center">
+                <h2>Pocket Sized Connect Four on a PCB</h2>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-stretch">
+                    <div class="col outlineIt" id="slide_images">
+                        <div class="row image-row">
+                            <img src="images/DIY images/pocketGameCard/image_16.jpg" alt="image 1" width="100%" height="100%">
+                        </div>
+                    </div>
+                    <div class="col slide-text-container outlineIt", id="slide_text">
+                        <p class="slide-text">
+                            <b>Goal: </b>Practice DFM and assembly for SMD components and programming bare microcontrollers.
+                        </p>
+                        <p class="slide-text">
+                            <b>Task: </b>Design a pocket sized game of connect four using WS2813 addressable RGB LEDs.
+                        </p>
+                        <p class="slide-text">
+                            <b>Action: </b>Designed in Fusion 360 (CAD and ECAD), programed in Arduino IDE C++. Documented on Github.
+                        </p>
+                        <p class="slide-text">
+                            <b>Result: </b>A playable game of Connect Four powered over USB and running on a swappable ATTINY-85 game cartridge.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Character Key Pad with Variable Keys -->
+        <div class="slide project-slide outlineIt">
+            <div class="slide-title text-center">
+                <h2>Special Character Key Pad with Variable Keys</h2>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-stretch">
+                    <div class="col outlineIt" id="slide_images">
+                        <div class="row image-row">
+                            <img src="images/DIY images/keypadV1/image_13.jpg" alt="image 1" width="100%" height="100%">
+                        </div>
+                    </div>
+                    <div class="col slide-text-container outlineIt", id="slide_text">
+                        <p class="slide-text">
+                            <b>Situation: </b>Typing math notes while attending university online during the pandemic was tedious.
+                        </p>
+                        <p class="slide-text">
+                            <b>Task: </b>Design a tool to help speed up the process of writing notes.
+                        </p>
+                        <p class="slide-text">
+                            <b>Action: </b>Designed in Fusion 360 (CAD and ECAD), programed in CircuitPython. Documented on Github.
+                        </p>
+                        <p class="slide-text">
+                            <b>Result: </b>A device which significantly simplified the process of typing special 
+                            characters and opens up the ability to type programming shortcuts and hotkey combinations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Desktop Alarm Clock -->
+        <div class="slide project-slide outlineIt">
+            <div class="slide-title text-center">
+                <h2>Custom Desktop Alarm Clock</h2>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-stretch">
+                    <div class="col outlineIt" id="slide_images">
+                        <div class="row">
+                            <div class="col">
+                                <img src="images/DIY images/alarmClock/image_22.jpg" alt="image 3" width="100%" height="100%">
+                            </div>
+                        </div>
+                        <div class="row image-row">
+                            <div class="col">
+                                <img src="images/DIY images/alarmClock/image_25.jpg" alt="image 1" width="100%" height="100%">
+                            </div>
+                            <div class="col">
+                                <img src="images/DIY images/alarmClock/image_9.jpg" alt="image 2" width="100%" height="100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col slide-text-container outlineIt", id="slide_text">
+                        <p class="slide-text">
+                            <b>Situation: </b>ECE 118 (Mechatronics) final project.
+                        </p>
+                        <p class="slide-text">
+                            <b>Task: </b>To build a digital alarm clock to reduce my reliance on a phone to provide timing.
+                        </p>
+                        <p class="slide-text">
+                            <b>Action: </b>Designed in Fusion 360 and Autodesk Eagle. Programmed in Arduino IDE (C++). Documented on Github.
+                        </p>
+                        <p class="slide-text">
+                            <b>Result: </b>A fully functional clock with the ability to set alarms and run a Pomodoro timer. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide container-fluid text-center outlineIt">
+            <div class="section-slide-content">
+                <h1 id="section-4">Mechanical Projects (ME)</h1>
+            </div>
+        </div>
+
+        <!-- Thermal Solution Design and Testing for Apple -->
+        <div class="slide project-slide outlineIt">
+            <div class="slide-title text-center">
+                <h2>Thermal Solution Design and Testing for Apple</h2>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-stretch">
+                    <div class="col outlineIt" id="slide_images">
+                        <div class="row image-row">
+                            <img src="images/DIY images/apple_thermals/image_7.jpg" alt="generic image of heatsink" width="100%" height="100%">
+                        </div>
+                        <p class="slide-text"> ^ Image for subject indication, actual design is under NDA. </p>
+                    </div>
+                    <div class="col slide-text-container outlineIt", id="slide_text">
+                        <p class="slide-text">
+                            <b>Situation: </b>Mixed Engineering Internship at Apple in the Power Management Unit Testing group.
+                        </p>
+                        <p class="slide-text">
+                            <b>Task: </b>Design, manufacture, and test a standalone thermal 
+                            management solution to meet dissipation specs for custom load within a constrained space.
+                        </p>
+                        <p class="slide-text">
+                            <b>Action: </b>Designed in Siemens NX, simulated in Ansys Discovery, 
+                            characterized on custom testbench with results analyzed using Python.
+                        </p>
+                        <p class="slide-text">
+                            <b>Result: </b>Met required specifications within the desired footprint.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mechanical Designs for Mechatronics Final Project -->
+        <div class="slide project-slide outlineIt">
+            <div class="slide-title text-center">
+                <h2>Mechanical Designs for Mechatronics Final Project</h2>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-stretch">
+                    <!-- <div class="col outlineIt" id="slide_images"> -->
+                        <div class="col">
+                            <div class="row">
+                                <img src="images/DIY images/mechatornicsBot/image_23.png" alt="image 1" width="100%" height="100%">
+                            </div>
+                            <div class="row">
+                                <img src="images/DIY images/mechatornicsBot/image_43.jpg" alt="image 2" width="100%" height="100%">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <img src="images/DIY images/mechatornicsBot/image_14.jpg" alt="image 3" width="100%" height="100%">
+                            </div>
+                            <div class="row">
+                                <img src="images/DIY images/mechatornicsBot/image_1.jpg" alt="image 4" width="100%" height="100%">
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                    <div class="col slide-text-container outlineIt", id="slide_text">
+                        <p class="slide-text">
+                            Situation: ECE 118 (Mechatronics) final project.
+                        </p>
+                        <p class="slide-text">
+                            Task: Design, manufacture, and program a robot to play a soccer/ping-pong based game 
+                            (in a team of two within a five week timeframe).
+                        </p>
+                        <p class="slide-text">
+                            Action: Mechanical components and assembly designed in Onshape, manufactured with a laser cutter and 3D printer.
+                        </p>
+                        <p class="slide-text">
+                            Result: Robot capable of: Autonomous movement using a state machine, 
+                            hierarchical state machine running in a real time service handler; 
+                            omnidirectional movement using an H-style drive; detecting 2KHz IR beacon signals, 
+                            navigating the game field and avoiding obstacles with tape and bump sensors, 
+                            and scoring shots from all point zones. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gener8 heat pipe -->
+        <div class="slide project-slide outlineIt">
+            <div class="slide-title text-center">
+                <h2>Mechanical design for Gener8 - Heat Pipe Bender</h2>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-stretch">
+                    <div class="col outlineIt" id="slide_images">
+                        <div class="row">
+                            <div class="col">
+                                <img src="images/DIY images/heatPipeBender/heatpipeBender1.png" alt="image 1" width="100%" height="100%">
+                            </div>
+                            <div class="col">
+                                <img src="images/DIY images/heatPipeBender/heatpipeBender2.png" alt="image 2" width="100%" height="100%">
+                            </div>
+                        </div>
+                        <div class="row image-row">
+                            <div class="col">
+                                <img src="images/DIY images/heatPipeBender/heatpipeBender3.png" alt="image 3" width="100%" height="100%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col slide-text-container outlineIt", id="slide_text">
+                        <p class="slide-text">
+                            Situation: Mixed Engineering Internship at Gener8 assisting with alpha unit design for a biomedical testing product.
+                        </p>
+                        <p class="slide-text">
+                            Task: Design and manufacture a device to repeatedly bend heat pipes to a specific angle without crimping or cracking.
+                        </p>
+                        <p class="slide-text">
+                            Action: Designed in SolidWorks, Version controlled with SolidWorks PDM.
+                        </p>
+                        <p class="slide-text">
+                            Result: A primarily 3D printed device using off the shelf parts from McMaster-Carr. 
+                        </p>
+                        <p class="slide-text">
+                            ~15% of the cost of an off the shelf pipe bender. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HEPA Filtered Intake for Gener8 -->
+        <div class="slide project-slide outlineIt">
+            <div class="slide-title text-center">
+                <h2>HEPA Filtered Intake for Gener8</h2>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-stretch">
+                    <div class="col outlineIt" id="slide_images">
+                        <div class="row image-row">
+                            <img src="images/DIY images/otherMechE/image_10.png" alt="sheet metal assembly of a HEPA filter" width="100%" height="100%">
+                        </div>
+                    </div>
+                    <div class="col slide-text-container outlineIt", id="slide_text">
+                        <p class="slide-text">
+                            <b>Situation: </b>Mixed Engineering Internship at Gener8 assisting with alpha unit design for a biomedical testing product.
+                        </p>
+                        <p class="slide-text">
+                            <b>Task: </b>Design a sheet metal assembly to hold HEPA filter and dual impeller outtakes.
+                        </p>
+                        <p class="slide-text">
+                            <b>Action: </b>Optimized an assembly for ease of manufacture, sealing, and filter replacement. 
+                            Designed in SolidWorks and version controlled with SolidWorks PDM.
+                        </p>
+                        <p class="slide-text">
+                            <b>Result: </b>The design to the left contains the needed parts and ensures an easy seal can be made. 
+                            Impellers are placed within the sealed unit and a rubber seal is placed at the interface of the machine walls.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide container-fluid text-center outlineIt">
+            <div class="section-slide-content">
+                <h1 id="section-5">Software Projects (SWE)</h1>
+            </div>
+        </div>
+
+        <!-- Sensor Data Acquisition GUI -->
+        <div class="slide project-slide outlineIt">
+            <div class="slide-title text-center">
+                <h2>Sensor Data Acquisition GUI</h2>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-stretch">
+                    <div class="col outlineIt" id="slide_images">
+                        <div class="row image-row">
+                            <img src="images/DIY images/dataAquisitionGUI/image_19.png" alt="sensor data aquisition GUI" width="100%" height="100%">
+                        </div>
+                    </div>
+                    <div class="col slide-text-container outlineIt", id="slide_text">
+                        <p class="slide-text">
+                            <b>Situation: </b>Automated brain cell maintenance device needed to record data from a series of sensors and display it in real time.
+                        </p>
+                        <p class="slide-text">
+                            <b>Task: </b>Create standardized interface and protocol for controlling data acquisition devices, displaying data, 
+                            and recording the data for future analysis.
+                        </p>
+                        <p class="slide-text">
+                            <b>Action: </b>Written in Python using tkinter library for cross platform compatibility.
+                        </p>
+                        <p class="slide-text">
+                            <b>Result: </b>The application communicates over USB-UART bridge to control 
+                            STM32 based sensor controller and records received data in CSV format. 
+                            Data stream can be stopped and started and errors are automatically detected and raised to the user.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PCB post-DRC Validation Check for Apple -->
+        <div class="slide project-slide outlineIt">
+            <div class="slide-title text-center">
+                <h2>PCB post-DRC Validation Check for Apple</h2>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-stretch">
+                    <div class="col outlineIt" id="slide_images">
+                        <div class="row image-row">
+                            <img src="images/DIY images/apple_script/image_15.png" alt="generic image of heatsink" width="100%" height="100%">
+                        </div>
+                        <p class="slide-text"> ^ Image for subject indication, actual design is under NDA. </p>
+                    </div>
+                    <div class="col slide-text-container outlineIt", id="slide_text">
+                        <p class="slide-text">
+                            <b>Situation: </b>Mixed Engineering Internship at Apple in the Power Management Unit Testing group.
+                        </p>
+                        <p class="slide-text">
+                            <b>Task: </b>Devise a method to speed up PCB revision design reviews by automating the process 
+                            of cross-checking netlist and part population to detect possible lost connections.
+                        </p>
+                        <p class="slide-text">
+                            <b>Action: </b>Written in Python with integration to internal PDM systems. 
+                            Generated Sankey diagram netlist visualization and tabulated possible erroneously 
+                            unpopulated net connections in a labeled CSV format.
+                        </p>
+                        <p class="slide-text">
+                            <b>Result: </b>Prototype correctly detected a past mistake, proving the viability 
+                            of automated component population checks and was handed of for future development.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide container-fluid text-center outlineIt">
+            <div class="section-slide-content">
+                <h1 id="section-6">Data Science (DS)</h1>
+            </div>
+        </div>
+
+        <!-- Data Science for Gener8 - Analysis of million line Excel file -->
+        <div class="slide project-slide outlineIt">
+            <div class="slide-title text-center">
+                <h2>Data Science for Gener8 - Analysis of million line Excel file</h2>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-stretch">
+                    <div class="col outlineIt" id="slide_images">
+                        <div class="row image-row">
+                            <img src="images/DIY images/dataAnalysisGener8/image_21.png" alt="sensor data aquisition GUI" width="100%" height="100%">
+                        </div>
+                        <p class="slide-text">(purpose of data can not be specified due to NDA)</p>
+                    <!-- </div> -->
+                    <!-- <div class="col slide-text-container outlineIt", id="slide_text"> -->
+                        <!-- TODO: change to a new type of slide text to have better formatting -->
+                        <p class="slide-text">
+                            <b>Situation: </b>Mixed Engineering Internship at Gener8 assisting with a biomedical testing device.
+                        </p>
+                        <p class="slide-text">
+                            <b>Task: </b>Processing and analyzing million line CSV files. 
+                            Assigned using Excel but I chose to use Python to automate the process.
+                        </p>
+                        <p class="slide-text">
+                            <b>Action: </b>Python tool programmed in Google Colab using Python with the Numpy, Pandas, and MatPlotLib libraries.
+                        </p>
+                        <p class="slide-text">
+                            <b>Result: </b>A tool for future processing and graphing script compiling relevant information.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- test slide -->
+    <!-- <div class="slide outlineIt">
+        <div class="slide-title text-center">
             <h2>Mechanical designs for Gener8 - Chemical Cartridge Holder</h2>
         </div>
         <div class="container text-center">
@@ -221,12 +701,52 @@ Detect via medioa query:
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+    </div>  <!-- End scroll container -->
+
+    </div>  <!-- End main layout -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
-    <script src="index.js"></script>
+
+    <script>
+        function fitSlideText(container) {
+            const paragraphs = Array.from(container.querySelectorAll('.slide-text'));
+            if (!paragraphs.length) return;
+
+            // Start with a reasonably large font size
+            let fontSize = 50;
+            paragraphs.forEach(p => p.style.fontSize = fontSize + 'px');
+
+            // Reduce font size until all text fits inside container
+            while (container.scrollHeight > container.clientHeight && fontSize > 1) {
+                fontSize -= 0.5; // fractional steps for smooth scaling
+                paragraphs.forEach(p => p.style.fontSize = fontSize + 'px');
+            }
+        }
+
+        function fitAllSlideText() {
+            // Skip scaling if viewport is below 1:1 ratio
+            const viewportRatio = (window.innerWidth / window.innerHeight) * 0.8;
+            if (viewportRatio < 1) return;
+
+            const containers = document.querySelectorAll('.slide-text-container');
+            containers.forEach(fitSlideText);
+        }
+
+        // Run on page load
+        window.addEventListener('load', fitAllSlideText);
+
+        // Run on resize
+        window.addEventListener('resize', fitAllSlideText);
+
+        function scrollToSection(sectionNumber) {
+            const target = document.getElementById(`section-${sectionNumber}`);
+            target.scrollIntoView({ behavior: 'auto' }); // Avoid conflicts by setting "auto"
+        }
+    </script>
+
 </body>
 
 </html>
