@@ -314,6 +314,7 @@ button.tool_button:hover {
   color:white;
   overflow: hidden; /* keep stars within bounds */
 }
+
 /* Generic star styling */
 .star {
   position: absolute;
