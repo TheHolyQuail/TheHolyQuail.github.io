@@ -1,23 +1,27 @@
 /* GENERAL STYLES */
+:root {
+  --text-light: #e6e6e6;  /* default soft white */
+  --text-muted: #bfc6cc;  /* secondary text */
+}
 
 h1{
     font-size : 5vw;
-    color: white;
+    color: var(--text-light);
 }
 
 h2{
     font-size : 3vw;
-    color: white;
+    color: var(--text-light);
 }
 
 h4{
     font-size : 2vw;
-    color: white;
+    color: var(--text-light);
 }
 
 p{
     /* font-size: 2vw; */
-    color: white;
+    color: var(--text-light);
 }
 
 body, html {
@@ -127,10 +131,11 @@ body, html {
 }
 
 .project-slide {
-    background-color: #121212;
+    background-color: #0c0d0f;
     border-radius: 10px;
     margin-top: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
     /* margin: 1rem 0; */
 }
 
@@ -213,8 +218,11 @@ body, html {
         width: auto; /* Maintain natural width */
         height: auto; /* Use 100% of the viewport height -- previously 80vh*/
         max-width: 100%; /* Ensure image doesn't exceed container width */
-        transform: translateY(10%); /* Adjust image Y position to avoid overlaps */
-        transform: translateX(4%); /* Adjust image X position to avoid overlaps */
+        /* padding: 2vh 2vw 2vh 5vw; top, right, bottom, left */
+        margin-left: 5vw;
+        width: calc(100% - 5vw);
+        /* transform: translateY(10%); Adjust image Y position to avoid overlaps */
+        /* transform: translateX(4%); Adjust image X position to avoid overlaps */
     }
 
     #slide_text p {
@@ -223,6 +231,11 @@ body, html {
         width: 100%;
         margin: 0;
         /* height: 100%; */
+    }
+
+    .slide .container {
+      max-width: 100% !important;
+      padding: 0 2vw; /* optional: maintain some breathing room */
     }
 }
 
