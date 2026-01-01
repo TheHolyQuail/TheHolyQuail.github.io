@@ -211,6 +211,11 @@ p {
   0%, 100% { opacity: 0; transform: scale(0.7); }
   50% { opacity: 1; transform: scale(1.1); }
 }
+
+.above_the_stars {
+  position: relative;
+  z-index: 1; /* ensures content is above the stars */
+}
 /* END BACKGROUND EFFECTS */
 
 .logo {
